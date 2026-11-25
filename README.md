@@ -48,3 +48,9 @@ npx wrangler pages deploy dist --project-name nick-molina-media
 ## Logo
 
 Nick's logo lives in `public/brand/`, recolored from black to Walnut (#402824). `logo-walnut.png` / `lockup-walnut.png` go on light surfaces, `logo-light.png` / `lockup-light.png` (Craft Camel body) on navy; the play-button shadow is black in both. Favicons, apple-touch-icon and `og.png` come from the same art. Set `SITE.url` in `src/templates/layout.mjs` at launch so the `og:image` tag resolves.
+
+## Deploy
+
+- Source: https://github.com/nikaveli/nickmolinamedia (branch `main`).
+- Hosting: Cloudflare Workers static assets, worker `nickmolinamedia`, config in `wrangler.jsonc`. Custom domains `nickmolinamedia.com` and `www.nickmolinamedia.com` are declared there and Cloudflare manages their DNS.
+- Ship a change: `npm run build && npx wrangler deploy`, then `git push`.
