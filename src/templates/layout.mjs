@@ -1,6 +1,6 @@
 export const SITE = {
   name: 'Nick Molina Media',
-  url: '', // set to https://yourdomain.com at launch so og:image resolves
+  url: 'https://nickmolinamedia.com',
   phone: '303-524-0591',
   tel: '+13035240591',
   email: 'nick.molina@icloud.com',
