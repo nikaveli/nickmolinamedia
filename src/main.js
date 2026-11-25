@@ -205,10 +205,10 @@ $$('[data-count]').forEach((el) => {
   });
 });
 
-/* ---------- Work strip: vertical scroll drives horizontal travel (desktop) ---------- */
+/* ---------- Work strip: vertical scroll drives horizontal travel (every device) ---------- */
 const track = $('#workTrack');
 if (track) {
-  if (!reduce) mm.add(DESK, () => {
+  motion(() => {
     const dist = () => track.scrollWidth - window.innerWidth + parseFloat(getComputedStyle(track).paddingLeft) * 2;
     const travel = gsap.to(track, {
       x: () => -dist(), ease: 'none',
@@ -221,16 +221,6 @@ if (track) {
     $$('.card', track).forEach((card) => {
       const media = card.querySelector('video, img'); if (!media) return;
       gsap.fromTo(media, { xPercent: -7 }, { xPercent: 7, ease: 'none', scrollTrigger: { containerAnimation: travel, trigger: card, start: 'left right', end: 'right left', scrub: true } });
-    });
-  });
-  // Phones and tablets: the track is a native swipe strip (scroll-snap). The same depth drift
-  // runs off the track's own horizontal scroll, and the cards stagger in as the strip arrives.
-  if (!reduce) mm.add(MOBILE, () => {
-    const cards = $$('.card', track);
-    gsap.from(cards, { x: 60, autoAlpha: 0, duration: T.card, ease: T.enter, stagger: 0.08, clearProps: 'all', scrollTrigger: { trigger: track, start: 'top 85%', once: true } });
-    cards.forEach((card) => {
-      const media = card.querySelector('video, img'); if (!media) return;
-      gsap.fromTo(media, { xPercent: -7 }, { xPercent: 7, ease: 'none', scrollTrigger: { scroller: track, horizontal: true, trigger: card, start: 'left right', end: 'right left', scrub: true } });
     });
   });
 }

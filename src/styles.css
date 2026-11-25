@@ -211,12 +211,12 @@ em { font-style: italic; }
 .card--end::after { display: none; }
 .card--end .d-4 { max-width: 12ch; }
 @media (max-width: 900px) {
-  .work-strip__pin { height: auto; padding: clamp(64px, 12vw, 120px) 0; }
-  .work-strip__track { overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); gap: 14px; scrollbar-width: none; -webkit-overflow-scrolling: touch; will-change: auto; }
-  .work-strip__track::-webkit-scrollbar { display: none; }
-  .card { width: min(78vw, 420px); aspect-ratio: 1 / 1; scroll-snap-align: start; }
+  /* Same pinned, scroll-driven travel as desktop; cards sized for a phone. */
+  .work-strip__pin { height: 100vh; height: 100svh; padding-bottom: 56px; }
+  .work-strip__track { gap: 14px; }
+  .card { width: min(78vw, 420px); aspect-ratio: 1 / 1; }
   .work-strip .card video, .work-strip .card img { width: 114%; max-width: none; margin-left: -7%; }
-  .work-strip__head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .work-strip__head { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 24px; }
 }
 
 /* ---------- Deliverables (stacked cards) ---------- */
