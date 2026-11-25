@@ -4,6 +4,10 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { Flip } from 'gsap/Flip';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
+// iOS/Android browsers resize the viewport as the address bar hides; don't re-measure pins for that.
+ScrollTrigger.config({ ignoreMobileResize: true });
+// Local test hook (dev server only): ?y=<px> jumps to that scroll position after load so simulator screenshots can land mid-scene.
+if (location.hostname === 'localhost') { const y = Number(new URLSearchParams(location.search).get('y')); if (y) window.addEventListener('load', () => setTimeout(() => window.scrollTo(0, y), 800)); }
 window.__motion = { gsap, ScrollTrigger };
 gsap.defaults({ ease: 'power3.out', duration: 0.8 });
 gsap.config({ nullTargetWarn: false });
@@ -207,6 +211,16 @@ if (track) {
       gsap.fromTo(media, { xPercent: -7 }, { xPercent: 7, ease: 'none', scrollTrigger: { containerAnimation: travel, trigger: card, start: 'left right', end: 'right left', scrub: true } });
     });
   });
+  // Phones and tablets: the track is a native swipe strip (scroll-snap). The same depth drift
+  // runs off the track's own horizontal scroll, and the cards stagger in as the strip arrives.
+  if (!reduce) mm.add(MOBILE, () => {
+    const cards = $$('.card', track);
+    gsap.from(cards, { x: 60, autoAlpha: 0, duration: T.card, ease: T.enter, stagger: 0.08, clearProps: 'all', scrollTrigger: { trigger: track, start: 'top 85%', once: true } });
+    cards.forEach((card) => {
+      const media = card.querySelector('video, img'); if (!media) return;
+      gsap.fromTo(media, { xPercent: -7 }, { xPercent: 7, ease: 'none', scrollTrigger: { scroller: track, horizontal: true, trigger: card, start: 'left right', end: 'right left', scrub: true } });
+    });
+  });
 }
 
 /* ---------- Sticky card stack: earlier cards recede as the next arrives ---------- */
@@ -240,7 +254,7 @@ if (marquee) {
 $$('[data-parallax]').forEach((el) => {
   const p = Number(el.dataset.parallax) * 100;
   responsive((ctx) => {
-    const amt = ctx.conditions.desk ? p : p * 0.5;
+    const amt = ctx.conditions.desk ? p : p * 0.7;
     gsap.fromTo(el, { yPercent: -amt }, { yPercent: amt, ease: 'none', scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 1, invalidateOnRefresh: true } });
   });
 });
@@ -259,7 +273,8 @@ slideOvers.forEach((sec) => sec.classList.add('slide-over'));
 motion(() => {
   slideOvers.forEach((sec) => {
     const prev = sec.previousElementSibling;
-    if (!prev || prev.matches('.hero, .shift, .work-strip, .stack, .marquee')) return;
+    // Never transform a pin-spacer: on touch devices pins are position: fixed, and a transformed parent breaks them.
+    if (!prev || prev.matches('.hero, .shift, .work-strip, .stack, .marquee, .pin-spacer')) return;
     gsap.to(prev, {
       scale: 0.96, autoAlpha: 0.55, transformOrigin: 'center bottom', ease: 'none',
       scrollTrigger: { trigger: sec, start: 'top bottom', end: 'top 35%', scrub: 0.6, invalidateOnRefresh: true },
@@ -334,8 +349,19 @@ if (curtain) {
 
 /* ---------- Portfolio: parallax walls, chapter words, hero mosaic, tile lightbox ---------- */
 if ($('.is-portfolio') || document.body.classList.contains('is-portfolio')) {
+  // Phones and tablets: re-pack every wall into two level columns (three for the reels wall) so the
+  // columns can drift against each other the way they do on desktop, with no holes beside tall reels.
+  if (window.matchMedia(MOBILE).matches) $$('[data-wall]').forEach((w) => {
+    const tiles = $$('.tile', w);
+    const n = w.classList.contains('wall--5') || w.classList.contains('wall--6') ? 3 : 2;
+    const speeds = [-40, 26, -34];
+    const cols = Array.from({ length: n }, (_, i) => { const c = document.createElement('div'); c.className = 'wall__col'; c.dataset.col = ''; c.dataset.speed = String(speeds[i]); return c; });
+    const h = Array(n).fill(0);
+    tiles.forEach((t) => { const i = h.indexOf(Math.min(...h)); cols[i].appendChild(t); h[i] += t.classList.contains('tile--v') ? 1.78 : 0.5625; });
+    w.replaceChildren(...cols);
+  });
   responsive((ctx) => {
-    if (ctx.conditions.desk) $$('[data-wall]').forEach((w) => {
+    $$('[data-wall]').forEach((w) => {
       $$('[data-col]', w).forEach((col) => {
         const speed = Number(col.dataset.speed);
         gsap.fromTo(col, { y: -speed }, { y: speed, ease: 'none', scrollTrigger: { trigger: w, start: 'top bottom', end: 'bottom top', scrub: 1.2, invalidateOnRefresh: true } });
