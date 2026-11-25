@@ -1,0 +1,273 @@
+[
+  {
+    "slug": "vaulted-white-kitchen",
+    "title": "Vaulted White Kitchen",
+    "room": "Kitchen",
+    "filter": "kitchens",
+    "city": "Denver Metro",
+    "loop": "p-vaulted-kitchen",
+    "blurb": "A vaulted great room opened up around a long white island, with glass-front uppers, a paneled range hood, and leather stools pulled up to the quartz. Filmed in a single visit the week of final walkthrough.",
+    "details": [
+      "Paneled range hood and glass-front uppers",
+      "Quartz waterfall island with seating for five",
+      "Pendants centered over the island run"
+    ],
+    "photos": 9,
+    "clips": [
+      "u081",
+      "u078",
+      "u068",
+      "u082",
+      "u073",
+      "u069",
+      "u071",
+      "u072",
+      "u070",
+      "u076",
+      "u075",
+      "u074",
+      "u077"
+    ]
+  },
+  {
+    "slug": "navy-kitchen",
+    "title": "Navy Kitchen Remodel",
+    "room": "Kitchen",
+    "filter": "kitchens",
+    "city": "Denver Metro",
+    "loop": "p-navy-kitchen",
+    "blurb": "Navy base cabinets under white uppers, a blue glazed-tile backsplash, and brass pulls, with a slide-in gas range as the centerpiece. Photographed and filmed the same morning.",
+    "details": [
+      "Navy base cabinets with brass hardware",
+      "Glazed blue subway backsplash",
+      "Slide-in gas range with stainless hood"
+    ],
+    "photos": 9,
+    "clips": [
+      "u019",
+      "u086",
+      "u017",
+      "u087",
+      "u020"
+    ]
+  },
+  {
+    "slug": "white-shaker-kitchen",
+    "title": "White Shaker Kitchen",
+    "room": "Kitchen",
+    "filter": "kitchens",
+    "city": "Denver Metro",
+    "loop": "p-white-kitchen",
+    "blurb": "A galley kitchen rebuilt with white shaker cabinets, a marble-look backsplash, under-cabinet lighting, and a skylight that makes the whole run of counter glow by mid-morning.",
+    "details": [
+      "Skylight over the main counter run",
+      "Under-cabinet lighting on the backsplash",
+      "Induction cooktop with wall ovens"
+    ],
+    "photos": 8,
+    "clips": [
+      "u013",
+      "u026",
+      "u015",
+      "u016",
+      "u022",
+      "u028",
+      "u095"
+    ]
+  },
+  {
+    "slug": "teal-vanity-bath",
+    "title": "Teal Double Vanity Bath",
+    "room": "Bath",
+    "filter": "baths",
+    "city": "Denver Metro",
+    "loop": "p-teal-bath",
+    "blurb": "A primary bath with a teal double vanity, brass fixtures, oval mirrors, and a frameless glass shower. Small room, big reveal, and a reel that stops the scroll.",
+    "details": [
+      "Teal double vanity with brass pulls",
+      "Frameless glass walk-in shower",
+      "Oval mirrors with brass sconces"
+    ],
+    "photos": 10,
+    "clips": [
+      "u029",
+      "u055",
+      "u025",
+      "u054"
+    ]
+  },
+  {
+    "slug": "freestanding-tub-bath",
+    "title": "Freestanding Tub Bath",
+    "room": "Bath",
+    "filter": "baths",
+    "city": "Denver Metro",
+    "loop": "p-tub-bath",
+    "blurb": "A freestanding soaking tub under a window, a brass floor-mount filler, and a patterned diamond tile wall. Afternoon light does half the work in this one.",
+    "details": [
+      "Brass floor-mount tub filler",
+      "Patterned diamond tile feature wall",
+      "Curbless shower with glass panel"
+    ],
+    "photos": 7,
+    "clips": [
+      "u014",
+      "u027",
+      "u012",
+      "u052",
+      "u053"
+    ]
+  },
+  {
+    "slug": "marble-tub-bath",
+    "title": "Marble Tub and Shower",
+    "room": "Bath",
+    "filter": "baths",
+    "city": "Denver Metro",
+    "loop": "p-marble-bath",
+    "blurb": "Book-matched green marble panels wrap the tub and shower, with a deep soaking tub, wood-look plank floor, and a dark vanity with a lit mirror.",
+    "details": [
+      "Book-matched marble slab walls",
+      "Deep freestanding soaking tub",
+      "Backlit mirror over a dark vanity"
+    ],
+    "photos": 7,
+    "clips": [
+      "u167",
+      "u168",
+      "u169",
+      "u172",
+      "u166",
+      "u162",
+      "u141",
+      "u142"
+    ]
+  },
+  {
+    "slug": "dark-kitchen",
+    "title": "Dark Cabinet Kitchen",
+    "room": "Kitchen",
+    "filter": "kitchens",
+    "city": "Denver Metro",
+    "loop": "p-dark-kitchen",
+    "blurb": "Espresso cabinets, a white quartz island with a pro-style cooktop, a stainless farmhouse sink, and a glass-canopy hood over the range wall.",
+    "details": [
+      "Island cooktop with stainless hood",
+      "Apron-front stainless farmhouse sink",
+      "Curved glass canopy range hood"
+    ],
+    "photos": 8,
+    "clips": [
+      "u160",
+      "u171",
+      "u155",
+      "u156",
+      "u157",
+      "u158",
+      "u177",
+      "u173"
+    ]
+  },
+  {
+    "slug": "second-story-addition",
+    "title": "Second-Story Addition",
+    "room": "Addition",
+    "filter": "additions",
+    "city": "Denver Metro",
+    "loop": "p-addition",
+    "blurb": "A full second story framed over a brick ranch. Filmed during the build and again at dusk, so the before, the during, and the finish all live in one project film.",
+    "details": [
+      "Full second-story framing over existing brick",
+      "Progress footage from framing day",
+      "Dusk exterior for the reveal"
+    ],
+    "photos": 7,
+    "clips": [
+      "u114",
+      "u116",
+      "u023",
+      "u024",
+      "u150",
+      "u152",
+      "u184"
+    ]
+  },
+  {
+    "slug": "black-and-brass-bath",
+    "title": "Black and Brass Bath",
+    "room": "Bath",
+    "filter": "baths",
+    "city": "Denver Metro",
+    "loop": "clips/u128",
+    "blurb": "Black doors, a white double vanity with brushed brass faucets, a brass chandelier, and a book-matched marble shower with a built-in niche. Filmed in afternoon light, the week of final walkthrough.",
+    "details": [
+      "Brushed brass widespread faucets on a white vanity",
+      "Book-matched marble shower with a niche",
+      "Brass chandelier over the tub"
+    ],
+    "photos": 0,
+    "clips": [
+      "u128",
+      "u123",
+      "u124",
+      "u125",
+      "u126",
+      "u127",
+      "u129",
+      "u018"
+    ]
+  },
+  {
+    "slug": "two-story-custom-home",
+    "title": "Two-Story Custom Home",
+    "room": "Whole home",
+    "filter": "whole",
+    "city": "Denver Metro",
+    "loop": "clips/u131",
+    "blurb": "A two-story custom home filmed room by room: the foyer under the chandelier, the fireplace and stair, the kitchen with the range wall, the primary bedroom, and the bath with the patterned-tile tub. One visit, one film, every room.",
+    "details": [
+      "Two-story foyer with chandelier and stair",
+      "White kitchen with pro range and hood",
+      "Patterned-tile freestanding tub bath"
+    ],
+    "photos": 0,
+    "clips": [
+      "u131",
+      "u134",
+      "u136",
+      "u135",
+      "u138",
+      "u137",
+      "u130",
+      "u132",
+      "u139"
+    ]
+  },
+  {
+    "slug": "whole-home-remodel",
+    "title": "Whole-Home Remodel",
+    "room": "Whole home",
+    "filter": "whole",
+    "city": "Denver Metro",
+    "loop": "clips/u004",
+    "blurb": "A main floor opened up end to end: coffered ceiling over the great room, a white kitchen with a long peninsula and sliding doors to the yard, and a double vanity bath with lit mirrors. Filmed empty, the day before move-in.",
+    "details": [
+      "Coffered ceiling across the great room",
+      "White kitchen with peninsula and sliding doors",
+      "Double vanity with backlit mirrors"
+    ],
+    "photos": 0,
+    "clips": [
+      "u004",
+      "u005",
+      "u006",
+      "u007",
+      "u008",
+      "u009",
+      "u010",
+      "u002",
+      "u001",
+      "u011"
+    ]
+  }
+]
