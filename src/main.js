@@ -89,6 +89,8 @@ ScrollTrigger.create({
     lastY = y;
   },
 });
+// A page can open already scrolled (hash link, restored scroll): set the nav state once without waiting for a scroll.
+window.addEventListener('load', () => nav.classList.toggle('is-scrolled', (window.scrollY || 0) > 40));
 
 /* ---------- Mobile menu (clip reveal, staggered links) ---------- */
 const menu = $('#menu');
