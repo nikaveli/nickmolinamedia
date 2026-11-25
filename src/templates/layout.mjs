@@ -1,8 +1,8 @@
 export const SITE = {
   name: 'Nick Molina Media',
   url: 'https://nickmolinamedia.com',
-  phone: '303-524-0591',
-  tel: '+13035240591',
+  phone: '720-625-2561',
+  tel: '+17206252561',
   email: 'nick.molina@icloud.com',
   instagram: 'https://instagram.com/nickmolinamedia',
   facebook: 'https://facebook.com/nickmolinamedia',

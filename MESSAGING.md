@@ -159,7 +159,7 @@ Page titles:
 - Headline: Got a project wrapping up?
 - Body: Tell me where and when. I'll take it from there.
 - Button: Book a project shoot
-- Under: Or call or text 303-524-0591
+- Under: Or call or text 720-625-2561
 
 ### WORK
 - Headline: The work
@@ -214,7 +214,7 @@ Page titles:
 - End every one with the same ask: **DM me SHOOT.**
 - Tag Summit as a collaborator on any reel showing their work so it posts to both feeds.
 - Tags, three to five: #denvercontractor #denverremodel #customhomebuilder #coloradobuilders #remodelingcontractor
-- Facebook version: same video, caption two to three lines longer (Facebook rewards a little more text), and end with "Message me SHOOT or call 303-524-0591."
+- Facebook version: same video, caption two to three lines longer (Facebook rewards a little more text), and end with "Message me SHOOT or call 720-625-2561."
 
 **12 reels, three a week for four weeks:**
 
