@@ -24,6 +24,13 @@ const T = {
 
 const mm = gsap.matchMedia();
 const isTouch = ScrollTrigger.isTouch === 1;
+// Phones flick fast: reveals start as soon as the element enters, run shorter, and complete on their own
+// if the flick has already carried the element past the trigger (fastScrollEnd).
+if (isTouch) { T.text = 0.7; T.card = 0.75; T.cardStagger = 0.07; }
+const REVEAL_START = isTouch ? 'top 100%' : 'top 85%';
+// A flick on a phone moves thousands of pixels a second. Anything entering during one is shown at once
+// instead of animated, so the page never looks empty while the scroll settles.
+const flicking = (st) => Math.abs(st.getVelocity()) > 1800;
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const REDUCE = '(prefers-reduced-motion: reduce)';
@@ -46,7 +53,7 @@ const loadIO = new IntersectionObserver((entries) => {
     if (!v.src) { v.src = v.dataset.src; v.load(); }
     loadIO.unobserve(v);
   }
-}, { rootMargin: '400px 0px' });
+}, { rootMargin: '120% 0px' });
 const playIO = new IntersectionObserver((entries) => {
   for (const e of entries) e.isIntersecting ? e.target.play?.().catch(() => {}) : e.target.pause?.();
 }, { threshold: 0.05 });
@@ -68,6 +75,9 @@ if (heroVideo) {
   pick();
   let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(pick, 250); });
 }
+
+// The three rooms sit right under the hero and must be ready the moment the hero lets go.
+window.addEventListener('load', () => setTimeout(() => $$('#shift video').forEach((v) => { if (!v.src && v.dataset.src) { v.src = v.dataset.src; v.load(); } }), 600));
 
 /* ---------- Smooth scroll (pointer devices, motion allowed) ---------- */
 if (!reduce) mm.add('(pointer: fine)', () => {
@@ -261,6 +271,16 @@ $$('[data-parallax]').forEach((el) => {
   });
 });
 
+/* ---------- Media drift: card media slides against the scroll (depth without a pin) ---------- */
+motion(() => {
+  const media = $$('.who__bg, .stack-card__media > video, .stack-card__media > img, .work-grid .card video, .work-grid .card img, .step--media video, .reels__phone video, .site-banner video');
+  media.forEach((m) => {
+    const box = m.parentElement; if (!box) return;
+    gsap.set(m, { scale: 1.16, transformOrigin: 'center' });
+    gsap.fromTo(m, { yPercent: -7 }, { yPercent: 7, ease: 'none', scrollTrigger: { trigger: box, start: 'top bottom', end: 'bottom top', scrub: 0.8, invalidateOnRefresh: true } });
+  });
+});
+
 /* ---------- Footer: slow upward handoff ---------- */
 const footer = $('.footer');
 if (footer) {
@@ -291,10 +311,12 @@ motion(() => {
     gsap.set(el, { clipPath: 'inset(0 0 100% 0)' });
     gsap.set(media, { scale: 1.18 });
     ScrollTrigger.create({
-      trigger: el, start: 'top 82%', once: true,
-      onEnter: () => gsap.timeline()
-        .to(el, { clipPath: 'inset(0 0 0% 0)', duration: 1.3, ease: 'power4.inOut' })
-        .to(media, { scale: 1, duration: 1.8, ease: T.enter }, 0.1),
+      trigger: el, start: isTouch ? 'top 96%' : 'top 82%', once: true, fastScrollEnd: true,
+      onEnter: (self) => flicking(self)
+        ? gsap.set([el, media], { clipPath: 'inset(0 0 0% 0)', scale: 1 })
+        : gsap.timeline()
+          .to(el, { clipPath: 'inset(0 0 0% 0)', duration: 1.3, ease: 'power4.inOut' })
+          .to(media, { scale: 1, duration: 1.8, ease: T.enter }, 0.1),
     });
   });
 });
@@ -399,24 +421,26 @@ if ($('.is-portfolio') || document.body.classList.contains('is-portfolio')) {
 /* ---------- Generic reveals: masked lines, blur-in blocks. Play once. ---------- */
 motion(() => {
   $$('.reveal-lines').forEach((el) => {
-    gsap.to($$('.line > span', el), {
-      y: 0, duration: T.text, ease: T.enter, stagger: T.lineStagger,
-      scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+    const spans = $$('.line > span', el);
+    ScrollTrigger.create({
+      trigger: el, start: REVEAL_START, once: true, fastScrollEnd: true,
+      onEnter: (self) => flicking(self) ? gsap.set(spans, { y: 0 }) : gsap.to(spans, { y: 0, duration: T.text, ease: T.enter, stagger: T.lineStagger }),
     });
   });
+  const shown = (els) => { els.forEach((el) => el.classList.remove('fade-up')); gsap.set(els, { clearProps: 'opacity,transform,filter' }); };
   ScrollTrigger.batch('.fade-up', {
-    start: 'top 90%', once: true, interval: 0.1, batchMax: 6,
-    onEnter: (els) => gsap.to(els, {
+    start: isTouch ? 'top 100%' : 'top 90%', once: true, interval: 0.1, batchMax: 6, fastScrollEnd: true,
+    onEnter: (els, triggers) => (triggers[0] && flicking(triggers[0])) ? shown(els) : gsap.to(els, {
       opacity: 1, y: 0, filter: 'blur(0px)', duration: T.text, ease: T.enter, stagger: T.cardStagger, overwrite: true,
-      onComplete: () => { els.forEach((el) => el.classList.remove('fade-up')); gsap.set(els, { clearProps: 'opacity,transform,filter' }); },
+      onComplete: () => shown(els),
     }),
   });
   // Work grid: one staged entrance, then Flip owns the cards' opacity and position.
   const grid = $('#workGrid');
   if (grid) {
-    gsap.from($$('.card', grid), {
-      y: 40, autoAlpha: 0, duration: T.card, ease: T.enter, stagger: { each: T.cardStagger, grid: 'auto', from: 'start' }, clearProps: 'all',
-      scrollTrigger: { trigger: grid, start: 'top 85%', once: true },
+    ScrollTrigger.create({
+      trigger: grid, start: REVEAL_START, once: true, fastScrollEnd: true,
+      onEnter: (self) => { if (!flicking(self)) gsap.from($$('.card', grid), { y: 40, autoAlpha: 0, duration: T.card, ease: T.enter, stagger: { each: T.cardStagger, grid: 'auto', from: 'start' }, clearProps: 'all' }); },
     });
   }
 });

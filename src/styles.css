@@ -366,6 +366,7 @@ em { font-style: italic; }
 /* ---------- Utilities ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .fade-up { opacity: 0; transform: translateY(32px); filter: blur(6px); }
+  @media (hover: none) { .fade-up { filter: none; transform: translateY(24px); } }
 }
 .hidden { display: none !important; }
 .loader { position: fixed; inset: 0; z-index: 90; background: var(--navy); display: grid; place-items: center; }
@@ -448,7 +449,6 @@ main > section.cta.slide-over { border-radius: 36px 36px 0 0; overflow: hidden; 
 .clip-tile video { width: 100%; height: 100%; object-fit: cover; }
 .who__card--live { position: relative; overflow: hidden; color: var(--white); border-color: transparent; background: var(--navy); min-height: 300px; display: flex; align-items: flex-end; }
 .who__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
-.who__card--live:hover .who__bg { transform: scale(1.04); }
 .who__card--live::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,12,38,0.05) 30%, rgba(0,12,38,0.85) 100%); }
 .who__body { position: relative; z-index: 1; }
 .who__card--live h3 { margin-top: 0; }
