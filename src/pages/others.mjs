@@ -19,6 +19,7 @@ const closing = (eyebrow = 'Got a project wrapping up?') => `
   <div class="cta__in">
     <p class="eyebrow fade-up" style="justify-content:center">${eyebrow}</p>
     <h2 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Tell me where</span></span><span class="line"><span>and when.</span></span></h2>
+    <p class="lead fade-up" style="margin: 24px auto 0; text-align:center">Send the address and a time window. I'll take it from there.</p>
     <a class="btn btn--blue btn--lg fade-up" href="./contact" data-magnetic>Book a project shoot</a>
     <p class="cta__phone fade-up">Or call or text <a href="tel:${SITE.tel}">${SITE.phone}</a></p>
   </div>
@@ -35,7 +36,7 @@ export function work(projects) {
   <div class="wrap">
     <p class="eyebrow fade-up">Work</p>
     <h1 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>The work.</span></span></h1>
-    <p class="lead fade-up">Finished projects from Colorado builders, filmed on site. Every project here was built by Summit Custom Builders.</p>
+    <p class="lead fade-up">${projects.length} finished projects from one Denver builder, Summit Custom Builders, every one filmed on site in a single visit. This is what your next homeowner would see.</p>
     <div class="filters fade-up" id="filters">
       <button class="is-active" data-filter="all">All</button>
       <button data-filter="kitchens">Kitchens</button>
@@ -65,7 +66,7 @@ export function work(projects) {
         <p class="eyebrow fade-up">The film</p>
         <h2 class="display d-2 reveal-lines" style="margin-top:24px"><span class="line"><span>Summit Custom</span></span><span class="line"><span>Builders, on film.</span></span></h2>
       </div>
-      <p class="lead fade-up">Sixty seconds across kitchens, baths, and an addition. This is what one builder's year of work looks like when it's filmed properly.</p>
+      <p class="lead fade-up">Sixty seconds across kitchens, baths, and an addition. This is what one builder's work looks like when it's filmed properly, and what yours could look like by the next walkthrough.</p>
     </div>
     <div class="film-frame" data-reveal-clip style="margin-top:48px">
       <img src="./media/film-summit1.jpg" alt="" loading="lazy" />
@@ -85,7 +86,7 @@ export function builders() {
       <h1 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Video for builders</span></span><span class="line"><span>too busy</span></span><span class="line"><span>to market.</span></span></h1>
     </div>
     <div>
-      <p class="lead fade-up">Flat prices. One visit, or one whole project, or a monthly rhythm. You own every file. For remodelers, custom home builders, design-build firms, kitchen and bath specialists, and the trades behind them.</p>
+      <p class="lead fade-up">Flat prices, no contract, and you own every file. One visit, one whole project, or a monthly rhythm. For remodelers, custom home builders, design-build firms, kitchen and bath specialists, and the trades behind them.</p>
     </div>
   </div>
 </section>
@@ -219,13 +220,14 @@ export function contact() {
       <label class="full">Expected finish date<input name="finish" type="date" /></label>
       <label class="full">Anything else<textarea name="notes" rows="4"></textarea></label>
       <button class="btn btn--blue btn--lg" type="submit">Request a shoot</button>
+      <p class="full muted" style="margin:0; font-size:14px; text-align:center">No contract. Flat price. You own every file.</p>
       <div class="form__ok full" id="formOk">Got it. I'll call or text you [within one business day] to lock in a date.</div>
     </form>
     <aside class="contact-aside">
       <div class="fade-up"><p class="eyebrow">Call or text</p><a href="tel:${SITE.tel}">${SITE.phone}</a></div>
       <div class="fade-up"><p class="eyebrow">Email</p><a href="mailto:${SITE.email}">${SITE.email}</a></div>
       <div class="fade-up"><p class="eyebrow">Where</p><p class="lead">Denver metro and the Front Range.</p></div>
-      <div class="fade-up"><p class="eyebrow">Best time to book</p><p class="lead">A week or two before final walkthrough.</p></div>
+      <div class="fade-up"><p class="eyebrow">Best time to book</p><p class="lead">A week or two before final walkthrough, while the home is still empty.</p></div>
     </aside>
   </div>
 </section>`;
@@ -240,6 +242,10 @@ export function project(p, projects) {
     return `<figure data-reveal-clip><img src="../media/photos/${p.slug}-${n}.jpg" alt="${p.title}, photo ${k + 1}" loading="lazy" /></figure>`;
   }).join('');
   const details = p.details.map((d, k) => `<div class="detail fade-up"><b>0${k + 1}</b>${d}</div>`).join('');
+  const headline = {
+    Addition: ['An addition,', 'filmed during the build and at the finish.'],
+    'Whole home': ['A whole home,', 'filmed room by room in one visit.'],
+  }[p.room] || [`${p.room} remodel,`, 'filmed in one visit.'];
   return `
 <section class="project-hero">
   ${video(p.loop + '.mp4', { poster: p.loop + '.jpg', base: '../' })}
@@ -254,7 +260,7 @@ export function project(p, projects) {
 </section>
 <section class="section light" style="padding-bottom:0">
   <div class="wrap grid-2">
-    <div><p class="eyebrow fade-up">The project</p><h2 class="display d-3 reveal-lines" style="margin-top:20px"><span class="line"><span>${p.room} remodel,</span></span><span class="line"><span>filmed in one visit.</span></span></h2></div>
+    <div><p class="eyebrow fade-up">The project</p><h2 class="display d-3 reveal-lines" style="margin-top:20px"><span class="line"><span>${headline[0]}</span></span><span class="line"><span>${headline[1]}</span></span></h2></div>
     <div><p class="lead fade-up">${p.blurb}</p><p class="muted fade-up" style="margin-top:16px">[Two or three sentences from Summit on what was built go here.]</p></div>
   </div>
   <div class="wrap project-film" style="padding-left:0; padding-right:0">
