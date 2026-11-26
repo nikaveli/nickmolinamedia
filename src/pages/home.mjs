@@ -202,7 +202,7 @@ export function home(projects) {
         <span class="line"><span>in person,</span></span>
         <span class="line"><span>every time.</span></span>
       </h2>
-      <p class="lead fade-up" style="margin-top:28px">I'm Nick Molina. I film every project myself with cinema cameras, a gimbal, and a motorized slider. I've also been building websites for local businesses since the early 2000s, so I don't just hand you files. I know where they need to go to bring in work.</p>
+      <p class="lead fade-up" style="margin-top:28px">I'm Nick Molina. I come to your finished project, film it myself, and hand you a film, reels, and photos you own outright. Then I make sure they land where homeowners look you up, so your next bid starts with your best work already in front of them.</p>
       <p class="fade-up muted" style="margin-top:18px">Based in Denver. Front Range only, so I can always be there in person.</p>
       <p class="eyebrow fade-up" style="margin-top:36px">How I work</p>
       <ul class="terms fade-up">
