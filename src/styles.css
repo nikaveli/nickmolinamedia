@@ -247,6 +247,8 @@ em { font-style: italic; }
 /* ---------- Why me ---------- */
 .why__portrait { aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; background: var(--walnut); }
 .why__portrait video, .why__portrait img { width: 100%; height: 100%; object-fit: cover; }
+/* Portrait photo: keep the face in frame when the 2:3 image is cropped to 4:5 */
+.why__portrait--photo img { object-position: 50% 30%; }
 .why__kit { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; font-size: 14px; color: var(--muted); }
 .light-page .why__kit { color: var(--muted-dark); }
 .why__kit li { list-style: none; padding-left: 16px; position: relative; }

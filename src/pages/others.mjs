@@ -183,7 +183,7 @@ export function about() {
 </section>
 <section class="section light" style="padding-top:0">
   <div class="wrap grid-2">
-    <div class="why__portrait" data-reveal-clip data-parallax="0.1">${video('room-kitchen.mp4', { poster: 'room-kitchen.jpg' })}</div>
+    <div class="why__portrait why__portrait--photo" data-reveal-clip data-parallax="0.1"><img src="./media/nick.jpg" srcset="./media/nick-640.jpg 640w, ./media/nick.jpg 1024w" sizes="(max-width: 900px) 100vw, 50vw" width="1024" height="1536" alt="Nick Molina" decoding="async"></div>
     <div>
       <p class="lead fade-up">I've been building websites for local businesses since the early 2000s, and behind a camera just as long. The pattern I kept seeing: the best builders had the worst photos. Their work was excellent. The proof of it was six blurry shots on a phone.</p>
       <p class="lead fade-up" style="margin-top:24px">So that's what I fix. I come to your finished project myself, film it properly, and hand you everything you need to show the next homeowner what you can do. No crew, no account manager, no contract. Just me, on site, on the day we agreed.</p>
