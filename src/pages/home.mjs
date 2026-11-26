@@ -193,8 +193,8 @@ export function home(projects) {
 <!-- WHY ME -->
 <section class="section why" id="about">
   <div class="wrap grid-2">
-    <div class="why__portrait" data-reveal-clip data-parallax="0.1">
-      <img src="./media/photos/freestanding-tub-bath-03.jpg" alt="Brass tub filler in afternoon light" loading="lazy" />
+    <div class="why__portrait why__portrait--photo" data-reveal-clip data-parallax="0.1">
+      <img src="./media/nick.jpg" srcset="./media/nick-640.jpg 640w, ./media/nick.jpg 1024w" sizes="(max-width: 900px) 100vw, 50vw" width="1024" height="1536" alt="Nick Molina" loading="lazy" decoding="async" />
     </div>
     <div>
       <h2 class="display d-2 reveal-lines">
