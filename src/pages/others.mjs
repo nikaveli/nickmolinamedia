@@ -7,8 +7,8 @@ const steps = `
     <h2 class="display d-2 reveal-lines" style="margin-top:24px; max-width: 14ch"><span class="line"><span>One visit.</span></span><span class="line"><span>Everything you need.</span></span></h2>
     <div class="steps__list">
       <div class="step" data-step><div class="step__num">01</div><h3>Tell me when it's done.</h3><p>Send the address and a time window around final walkthrough.</p></div>
-      <div class="step" data-step><div class="step__num">02</div><h3>I show up and film.</h3><p>Me, not a crew. About [2 to 3 hours] on site, no disruption to your homeowner.</p></div>
-      <div class="step" data-step><div class="step__num">03</div><h3>You get the full set.</h3><p>A project film, vertical reels, and edited photos in [7 days].</p></div>
+      <div class="step" data-step><div class="step__num">02</div><h3>I show up and film.</h3><p>Me, not a crew. About 2 to 3 hours on site, no disruption to your homeowner.</p></div>
+      <div class="step" data-step><div class="step__num">03</div><h3>You get the full set.</h3><p>A project film, vertical reels, and edited photos in 7 days.</p></div>
     </div>
   </div>
 </section>`;
@@ -110,7 +110,7 @@ export function builders() {
         <div class="pkg__tag">One visit</div>
         <h3>Project Film</h3>
         <div class="pkg__price"><strong>$950</strong>per finished project &middot; $750 for your first</div>
-        <ul><li>45 to 60 second cinematic project film</li><li>Three vertical reels for Instagram and Facebook</li><li>20+ edited photos, wide to detail</li><li>Delivered in [7 days]</li></ul>
+        <ul><li>45 to 60 second cinematic project film</li><li>Three vertical reels for Instagram and Facebook</li><li>20+ edited photos, wide to detail</li><li>Delivered in 7 days</li></ul>
         <a class="btn btn--blue" href="./contact">Book a project shoot</a>
       </div>
       <div class="pkg pkg--hero fade-up">
@@ -152,7 +152,7 @@ export function builders() {
       <div class="step step--media" data-step><div class="step__media" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="./media/clips/u152.mp4" poster="./media/clips/u152.jpg" aria-hidden="true"></video></div><div class="step__num">02</div><h3>The middle.</h3><p>Framing, tile going in, cabinet install. Craft the homeowner never sees once the walls close. Reels go out while the job is live.</p></div>
       <div class="step step--media" data-step><div class="step__media" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="./media/clips/u081.mp4" poster="./media/clips/u081.jpg" aria-hidden="true"></video></div><div class="step__num">03</div><h3>The reveal.</h3><p>Final walkthrough week, before furniture and daily life move in. The project film, the before-and-after cut, the photo set.</p></div>
     </div>
-    <p class="muted fade-up" style="margin-top:40px; max-width:60ch">Single-visit Project Films follow the same final-visit standard. Delivery: reels in [3 business days], photo sets in [5], films within [two weeks] of the last visit.</p>
+    <p class="muted fade-up" style="margin-top:40px; max-width:60ch">Single-visit Project Films follow the same final-visit standard. Delivery: reels in 3 business days, photo sets in 5, Project Films in 7 days, and Build Story films within two weeks of the final visit.</p>
   </div>
 </section>
 <section class="section light">
@@ -205,7 +205,7 @@ export function contact() {
   <div class="wrap">
     <p class="eyebrow fade-up">Contact</p>
     <h1 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Got a project</span></span><span class="line"><span>wrapping up?</span></span></h1>
-    <p class="lead fade-up">Tell me where and when. I'll get back to you [within one business day].</p>
+    <p class="lead fade-up">Tell me where and when. I'll get back to you within one business day.</p>
   </div>
 </section>
 <section class="section light" style="padding-top:0">
@@ -221,7 +221,7 @@ export function contact() {
       <label class="full">Anything else<textarea name="notes" rows="4"></textarea></label>
       <button class="btn btn--blue btn--lg" type="submit">Request a shoot</button>
       <p class="full muted" style="margin:0; font-size:14px; text-align:center">No contract. Flat price. You own every file.</p>
-      <div class="form__ok full" id="formOk">Got it. I'll call or text you [within one business day] to lock in a date.</div>
+      <div class="form__ok full" id="formOk">Got it. I'll call or text you within one business day to lock in a date.</div>
     </form>
     <aside class="contact-aside">
       <div class="fade-up"><p class="eyebrow">Call or text</p><a href="tel:${SITE.tel}">${SITE.phone}</a></div>
@@ -261,7 +261,7 @@ export function project(p, projects) {
 <section class="section light" style="padding-bottom:0">
   <div class="wrap grid-2">
     <div><p class="eyebrow fade-up">The project</p><h2 class="display d-3 reveal-lines" style="margin-top:20px"><span class="line"><span>${headline[0]}</span></span><span class="line"><span>${headline[1]}</span></span></h2></div>
-    <div><p class="lead fade-up">${p.blurb}</p><p class="muted fade-up" style="margin-top:16px">[Two or three sentences from Summit on what was built go here.]</p></div>
+    <div><p class="lead fade-up">${p.blurb}</p></div>
   </div>
   <div class="wrap project-film" style="padding-left:0; padding-right:0">
     <div class="film-frame" data-reveal-clip>
@@ -279,7 +279,7 @@ export function project(p, projects) {
       <div class="fade-up"><strong>${p.photos ? p.photos + "+" : (p.clips || []).length}</strong><span>${p.photos ? "edited photos" : "clips in the film"}</span></div>
       <div class="fade-up"><strong>1</strong><span>project film</span></div>
       <div class="fade-up"><strong>3</strong><span>vertical reels</span></div>
-      <div class="fade-up"><strong>[7]</strong><span>days to delivery</span></div>
+      <div class="fade-up"><strong>7</strong><span>days to delivery</span></div>
     </div>
   </div>
 </section>

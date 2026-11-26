@@ -4,7 +4,7 @@ export const HOME_FAQ = [
   { q: "When should I call you?", a: "A week or two before a project wraps. The best footage happens around final walkthrough, before furniture and daily life move in." },
   { q: "What if the homeowner already lives there?", a: "We still shoot. I work around their schedule and keep personal items out of frame." },
   { q: "Do you film work in progress?", a: "Yes. Framing, tile, and cabinet install days make strong before-and-after footage, and they keep your feeds current between finishes." },
-  { q: "Who owns the footage?", a: "[You do. Use it anywhere, for good.]" },
+  { q: "Who owns the footage?", a: "You do. Use it anywhere, for good." },
   { q: "Do you need the homeowner's permission?", a: "I'll give you a one-page release to pass along. Most homeowners are proud to show the work." },
   { q: "Where do you work?", a: "Denver metro and the Front Range. Close enough that I'm always there in person." },
 ];
@@ -44,7 +44,7 @@ export function home(projects) {
         <a class="btn btn--ghost" href="./work" data-magnetic>See the work <span class="arrow">&rarr;</span></a>
       </div>
     </div>
-    <ul class="hero__chips fade-up"><li>One visit</li><li>Film in [7 days]</li><li>No contract</li><li>You own every file</li><li>Denver + Front Range</li></ul>
+    <ul class="hero__chips fade-up"><li>One visit</li><li>Film in 7 days</li><li>No contract</li><li>You own every file</li><li>Denver + Front Range</li></ul>
   </div>
   <div class="hero__scroll"><i></i><span>Scroll</span></div>
 </section>
@@ -96,12 +96,12 @@ export function home(projects) {
       <div class="step" data-step>
         <div class="step__num">02</div>
         <h3>I show up and film.</h3>
-        <p>Me, not a crew. About [2 to 3 hours] on site, with no disruption to your homeowner.</p>
+        <p>Me, not a crew. About 2 to 3 hours on site, with no disruption to your homeowner.</p>
       </div>
       <div class="step" data-step>
         <div class="step__num">03</div>
         <h3>You get the full set.</h3>
-        <p>A project film, vertical reels, and edited photos in [7 days], sized for your website, Google profile, Instagram, and Facebook.</p>
+        <p>A project film, vertical reels, and edited photos in 7 days, sized for your website, Google profile, Instagram, and Facebook.</p>
       </div>
     </div>
   </div>
@@ -218,7 +218,7 @@ export function home(projects) {
         <li>No contract on single projects</li>
         <li>You own every file, for good</li>
         <li>One revision round on every film</li>
-        <li>First visit within [a week] of booking</li>
+        <li>First visit within a week of booking</li>
         <li>No travel fee inside the Denver metro</li>
         <li>Your company credited by name, everywhere the work appears</li>
       </ul>
@@ -251,7 +251,7 @@ export function home(projects) {
         <div class="pkg__tag">One visit</div>
         <h3>Project Film</h3>
         <div class="pkg__price"><strong>$950</strong>per finished project &middot; $750 for your first</div>
-        <ul><li>45 to 60 second cinematic project film</li><li>Three vertical reels for Instagram and Facebook</li><li>20+ edited photos, wide to detail</li><li>Delivered in [7 days]</li></ul>
+        <ul><li>45 to 60 second cinematic project film</li><li>Three vertical reels for Instagram and Facebook</li><li>20+ edited photos, wide to detail</li><li>Delivered in 7 days</li></ul>
         <a class="btn btn--blue" href="./contact">Book a project shoot</a>
       </div>
       <div class="pkg pkg--hero fade-up">
