@@ -3,6 +3,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { Flip } from 'gsap/Flip';
 
+// WebKit can run this module before the page's stylesheet has finished loading on a slow connection. GSAP
+// records an element's starting values the first time it touches it, so if that happens against the
+// unstyled page the hero statement and dim start "visible" and the hero loads with the end state on top of
+// the headline. Everything waits here until the stylesheet has actually applied.
+const cssApplied = () => getComputedStyle(document.documentElement).getPropertyValue('--navy').trim() !== '';
+function main() {
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip);
 // iOS/Android browsers resize the viewport as the address bar hides; don't re-measure pins for that.
 ScrollTrigger.config({ ignoreMobileResize: true });
@@ -161,6 +167,31 @@ if (hero) {
       .to('#heroMedia', { yPercent: -6, duration: 0.3, ease: 'none' }, 0.75);
   });
   if (reduce) gsap.set('#heroStatement', { display: 'none' });
+  // DEBUG (localhost only): on-screen state log for phone testing
+  if (location.search.includes('nmmdebug')) {
+    const box = document.createElement('pre');
+    box.style.cssText = 'position:fixed;left:0;bottom:0;z-index:99999;background:#000c;color:#0f0;font:11px/1.3 monospace;margin:0;padding:6px;max-width:100vw;max-height:60vh;overflow:auto;white-space:pre-wrap';
+    document.body.appendChild(box);
+    const log = [];
+    const ev = (name) => () => { if (log.length < 24) log.push(`${(performance.now()/1000).toFixed(2)}s ${name} y=${Math.round(window.scrollY)} h=${innerHeight}`); };
+    ScrollTrigger.addEventListener('refresh', ev('refresh'));
+    ScrollTrigger.addEventListener('refreshInit', ev('refreshInit'));
+    window.addEventListener('resize', ev('resize'));
+    window.addEventListener('scroll', ev('scroll'), { passive: true });
+    window.addEventListener('load', ev('load'));
+    window.addEventListener('pageshow', (e) => ev('pageshow persisted=' + e.persisted)());
+    const st = ScrollTrigger.getById('hero');
+    const origEnter = st.vars.onEnter, origLeave = st.vars.onLeave, origLB = st.vars.onLeaveBack, origEB = st.vars.onEnterBack;
+    st.vars.onLeave = (s) => { ev('onLeave p=' + s.progress.toFixed(2))(); origLeave && origLeave(s); };
+    st.vars.onLeaveBack = (s) => { ev('onLeaveBack p=' + s.progress.toFixed(2))(); origLB && origLB(s); };
+    st.vars.onEnter = (s) => { ev('onEnter')(); origEnter && origEnter(s); };
+    st.vars.onEnterBack = (s) => { ev('onEnterBack')(); origEB && origEB(s); };
+    const w = document.querySelector('#heroStatement .w');
+    setInterval(() => {
+      const t = ScrollTrigger.getById('hero');
+      box.textContent = `y=${Math.round(window.scrollY)} ih=${innerHeight} touch=${ScrollTrigger.isTouch} hero start=${Math.round(t.start)} end=${Math.round(t.end)} p=${t.progress.toFixed(3)} tl=${t.animation.progress().toFixed(3)} active=${t.isActive}\nword=${getComputedStyle(w).opacity} dim=${getComputedStyle(document.querySelector('#heroDim')).opacity} content=${getComputedStyle(document.querySelector('#heroContent')).opacity} clip=${getComputedStyle(document.querySelector('#heroMedia')).clipPath}\n` + log.join('\n');
+    }, 400);
+  }
 }
 
 /* ---------- Shift: three rooms, three lines, one pinned scrub ---------- */
@@ -529,3 +560,13 @@ form?.addEventListener('submit', async (e) => {
 /* ---------- Refresh once fonts and media have settled ---------- */
 window.addEventListener('load', () => ScrollTrigger.refresh());
 document.fonts?.ready.then(() => ScrollTrigger.refresh());
+}
+
+if (cssApplied()) main();
+else {
+  let started = false;
+  const go = () => { if (!started) { started = true; main(); } };
+  document.querySelectorAll('link[rel="stylesheet"]').forEach((l) => l.addEventListener('load', () => cssApplied() && go(), { once: true }));
+  const poll = setInterval(() => { if (cssApplied()) { clearInterval(poll); go(); } }, 50);
+  setTimeout(() => { clearInterval(poll); go(); }, 8000);
+}
