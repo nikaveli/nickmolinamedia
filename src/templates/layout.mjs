@@ -21,6 +21,7 @@ export function layout({ title, description, body, bodyClass = '', depth = 0, pa
   <title>${title}</title>
   <meta name="description" content="${description}" />
   <link rel="canonical" href="${canonical}" />
+  <meta name="google-site-verification" content="hNs9WKeh98aD4-5BlXLDbZ21_9GgjOyPZLIfHE_EV2A" />
 ${noindex ? '  <meta name="robots" content="noindex" />\n' : ''}  <meta name="theme-color" content="#000C26" />
   <link rel="icon" href="${base}brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="${base}brand/favicon-32.png" />
