@@ -28,6 +28,13 @@ const isTouch = ScrollTrigger.isTouch === 1;
 // if the flick has already carried the element past the trigger (fastScrollEnd).
 if (isTouch) { T.text = 0.7; T.card = 0.75; T.cardStagger = 0.07; }
 const REVEAL_START = isTouch ? 'top 100%' : 'top 85%';
+// Pinned scenes: desktop eases the scene behind the smooth scroller (scrub 0.9s). Phones have native momentum
+// already, and a catch-up tween can be interrupted by a flick that overshoots the top and leave the scene
+// half-rendered, so on touch the scene follows the scroll position directly and is rewound/finished outright
+// whenever the scroll leaves it.
+const SCENE_SCRUB = isTouch ? true : T.scrub;
+const hardRewind = (self) => { if (isTouch) self.animation.progress(0); };
+const hardFinish = (self) => { if (isTouch) self.animation.progress(1); };
 // A flick on a phone moves thousands of pixels a second. Anything entering during one is shown at once
 // instead of animated, so the page never looks empty while the scroll settles.
 const flicking = (st) => Math.abs(st.getVelocity()) > 1800;
@@ -141,7 +148,8 @@ if (hero) {
     const tl = gsap.timeline({
       scrollTrigger: {
         id: 'hero', trigger: hero, start: 'top top', end: () => (desk ? '+=190%' : '+=150%'),
-        pin: true, scrub: T.scrub, anticipatePin: 1, refreshPriority: 3, invalidateOnRefresh: true,
+        pin: true, scrub: SCENE_SCRUB, anticipatePin: 1, refreshPriority: 3, invalidateOnRefresh: true,
+        onLeaveBack: hardRewind, onLeave: hardFinish,
       },
     });
     tl.to('#heroContent', { opacity: 0, y: -80, duration: 0.3, ease: 'none' }, 0)
@@ -168,7 +176,8 @@ if (shift) {
     const tl = gsap.timeline({
       scrollTrigger: {
         id: 'shift', trigger: shift, start: 'top top', end: () => (desk ? '+=280%' : '+=220%'),
-        pin: true, scrub: T.scrub, anticipatePin: 1, refreshPriority: 2, invalidateOnRefresh: true,
+        pin: true, scrub: SCENE_SCRUB, anticipatePin: 1, refreshPriority: 2, invalidateOnRefresh: true,
+        onLeaveBack: hardRewind, onLeave: hardFinish,
         onUpdate: (self) => {
           counter.textContent = String(Math.min(2, Math.floor(self.progress * 3)) + 1).padStart(2, '0');
           gsap.set(bar, { scaleX: self.progress });
@@ -214,7 +223,7 @@ if (track) {
       x: () => -dist(), ease: 'none',
       scrollTrigger: {
         id: 'work', trigger: '.work-strip', start: 'top top', end: () => '+=' + dist(),
-        pin: '.work-strip__pin', scrub: T.scrub, invalidateOnRefresh: true, anticipatePin: 1, refreshPriority: 1,
+        pin: '.work-strip__pin', scrub: SCENE_SCRUB, invalidateOnRefresh: true, anticipatePin: 1, refreshPriority: 1,
       },
     });
     // Depth: media inside each card drifts against the strip's travel (containerAnimation).
