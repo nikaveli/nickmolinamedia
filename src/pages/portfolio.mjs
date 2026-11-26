@@ -35,9 +35,11 @@ function wall(items, cols) {
 }
 
 export function portfolio(projects) {
-  const byFilter = (f) => projects.filter((p) => p.filter === f).flatMap((p) => p.clips.map((id) => ({ id, title: p.title })));
+  // A project may keep a clip on its own page but leave it off its wall (wallSkip), e.g. a stair shot
+  // that reads as whole-home rather than bath.
+  const byFilter = (f) => projects.filter((p) => p.filter === f).flatMap((p) => p.clips.filter((id) => !(p.wallSkip || []).includes(id)).map((id) => ({ id, title: p.title })));
   const heroMosaic = ['u081', 'u167', 'u114', 'u131', 'u086', 'u128', 'u160', 'u013', 'u029'];
-  const total = projects.reduce((n, p) => n + p.clips.length, 0) + VERTICAL.length;
+  const total = new Set(projects.flatMap((p) => p.clips).concat(VERTICAL)).size;
 
   const chapters = CHAPTERS.map((c, i) => {
     const items = byFilter(c.filter);
