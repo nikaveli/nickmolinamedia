@@ -8,8 +8,11 @@ export const SITE = {
   facebook: 'https://facebook.com/nickmolinamedia',
 };
 
-export function layout({ title, description, body, bodyClass = '', depth = 0 }) {
+export function layout({ title, description, body, bodyClass = '', depth = 0, path = '/', jsonld = [], noindex = false }) {
   const base = depth ? '../'.repeat(depth) : './';
+  const canonical = SITE.url + path;
+  // Schema.org JSON-LD. Only facts that are visible on the page go in here.
+  const ld = jsonld.map((o) => `  <script type="application/ld+json">${JSON.stringify(o).replace(/</g, '\\u003c')}</script>`).join('\n');
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -17,14 +20,19 @@ export function layout({ title, description, body, bodyClass = '', depth = 0 }) 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${title}</title>
   <meta name="description" content="${description}" />
-  <meta name="theme-color" content="#000C26" />
+  <link rel="canonical" href="${canonical}" />
+${noindex ? '  <meta name="robots" content="noindex" />\n' : ''}  <meta name="theme-color" content="#000C26" />
   <link rel="icon" href="${base}brand/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="${base}brand/favicon-32.png" />
   <link rel="apple-touch-icon" href="${base}brand/apple-touch-icon.png" />
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${description}" />
   <meta property="og:image" content="${SITE.url}/brand/og.png" />
+  <meta property="og:url" content="${canonical}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="${SITE.name}" />
   <meta name="twitter:card" content="summary_large_image" />
+${ld}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />

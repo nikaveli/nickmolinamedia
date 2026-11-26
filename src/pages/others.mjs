@@ -293,3 +293,19 @@ export function project(p, projects) {
 </section>
 <a class="next-project" href="./${next.slug}"><span class="eyebrow">Next project</span><span class="display d-4">${next.title} &rarr;</span></a>`;
 }
+
+export function notFound() {
+  return `
+<section class="page-hero light">
+  <div class="wrap">
+    <p class="eyebrow fade-up">404</p>
+    <h1 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>That page</span></span><span class="line"><span>isn't here.</span></span></h1>
+    <p class="lead fade-up">The address may have changed. Everything on the site is one click away.</p>
+    <div class="hero__actions fade-up" style="margin-top:32px">
+      <a class="btn btn--blue" href="./work" data-magnetic>See the work</a>
+      <a class="btn btn--ghost" href="./builders" data-magnetic>Packages and prices <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+${closing()}`;
+}

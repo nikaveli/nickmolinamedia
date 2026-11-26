@@ -1,5 +1,14 @@
 import { video, SITE } from '../templates/layout.mjs';
 
+export const HOME_FAQ = [
+  { q: "When should I call you?", a: "A week or two before a project wraps. The best footage happens around final walkthrough, before furniture and daily life move in." },
+  { q: "What if the homeowner already lives there?", a: "We still shoot. I work around their schedule and keep personal items out of frame." },
+  { q: "Do you film work in progress?", a: "Yes. Framing, tile, and cabinet install days make strong before-and-after footage, and they keep your feeds current between finishes." },
+  { q: "Who owns the footage?", a: "[You do. Use it anywhere, for good.]" },
+  { q: "Do you need the homeowner's permission?", a: "I'll give you a one-page release to pass along. Most homeowners are proud to show the work." },
+  { q: "Where do you work?", a: "Denver metro and the Front Range. Close enough that I'm always there in person." },
+];
+
 export function home(projects) {
   const featured = projects.slice(0, 6);
   const cards = featured.map((p) => `
@@ -278,12 +287,7 @@ export function home(projects) {
       <h2 class="display d-3 reveal-lines"><span class="line"><span>What builders</span></span><span class="line"><span>ask first.</span></span></h2>
     </div>
     <div class="faq__list" id="faq">
-      <div class="faq__item"><button class="faq__q" aria-expanded="false">When should I call you? <span class="plus"></span></button><div class="faq__a"><p>A week or two before a project wraps. The best footage happens around final walkthrough, before furniture and daily life move in.</p></div></div>
-      <div class="faq__item"><button class="faq__q" aria-expanded="false">What if the homeowner already lives there? <span class="plus"></span></button><div class="faq__a"><p>We still shoot. I work around their schedule and keep personal items out of frame.</p></div></div>
-      <div class="faq__item"><button class="faq__q" aria-expanded="false">Do you film work in progress? <span class="plus"></span></button><div class="faq__a"><p>Yes. Framing, tile, and cabinet install days make strong before-and-after footage, and they keep your feeds current between finishes.</p></div></div>
-      <div class="faq__item"><button class="faq__q" aria-expanded="false">Who owns the footage? <span class="plus"></span></button><div class="faq__a"><p>[You do. Use it anywhere, for good.]</p></div></div>
-      <div class="faq__item"><button class="faq__q" aria-expanded="false">Do you need the homeowner's permission? <span class="plus"></span></button><div class="faq__a"><p>I'll give you a one-page release to pass along. Most homeowners are proud to show the work.</p></div></div>
-      <div class="faq__item"><button class="faq__q" aria-expanded="false">Where do you work? <span class="plus"></span></button><div class="faq__a"><p>Denver metro and the Front Range. Close enough that I'm always there in person.</p></div></div>
+      ${HOME_FAQ.map((f) => `<div class="faq__item"><button class="faq__q" aria-expanded="false">${f.q} <span class="plus"></span></button><div class="faq__a"><p>${f.a}</p></div></div>`).join('\n      ')}
     </div>
   </div>
 </section>

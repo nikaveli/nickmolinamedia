@@ -10,6 +10,7 @@ const pages = {
   builders: resolve(root, 'builders.html'),
   about: resolve(root, 'about.html'),
   contact: resolve(root, 'contact.html'),
+  notfound: resolve(root, '404.html'),
 };
 for (const f of readdirSync(resolve(root, 'work')).filter((f) => f.endsWith('.html'))) {
   pages['work-' + f.replace('.html', '')] = resolve(root, 'work', f);
