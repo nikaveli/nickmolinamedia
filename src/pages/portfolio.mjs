@@ -1,7 +1,7 @@
 import { SITE } from '../templates/layout.mjs';
 
 // Vertical 9:16 reels from the catalog
-const VERTICAL = ['u030', 'u031', 'u032', 'u033', 'u034', 'u035', 'u036', 'u037', 'u038', 'u039', 'u040', 'u041', 'u042', 'u043', 'u044', 'u045', 'u046', 'u047', 'u048', 'u049'];
+const VERTICAL = ['u030', 'u034', 'u032', 'u033', 'u031', 'u035', 'u036', 'u037', 'u038', 'u039', 'u040', 'u041', 'u042', 'u043', 'u044', 'u045', 'u046', 'u047', 'u048', 'u049'];
 
 const CHAPTERS = [
   { id: 'kitchens', word: 'Kitchens', filter: 'kitchens', lead: 'Islands, range walls, cabinet reveals, and the hardware a homeowner runs a hand over.', hero: 'u081' },
@@ -43,7 +43,7 @@ export function portfolio(projects) {
     const items = byFilter(c.filter);
     // Drop a few vertical reels into every wall so the rhythm changes
     const verts = VERTICAL.slice(i * 3, i * 3 + 3).map((id) => ({ id, title: c.word + ' reel', vertical: true }));
-    const mixed = items.flatMap((it, k) => (k % 4 === 2 && verts.length ? [it, verts.shift()] : [it]));
+    const mixed = items.flatMap((it, k) => (k % 4 === 2 && verts.length ? [it, verts.shift()] : [it])).concat(verts.splice(0));
     return `
 <section class="chapter" id="${c.id}" data-chapter>
   <div class="chapter__bg" data-chapter-bg><video muted playsinline loop preload="metadata" data-src="./media/clips/${c.hero}.mp4" poster="./media/clips/${c.hero}.jpg" aria-hidden="true"></video></div>
