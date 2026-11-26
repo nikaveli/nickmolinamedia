@@ -81,6 +81,7 @@ em { font-style: italic; }
 .light { background: var(--white); color: var(--ink); }
 .camel { background: var(--camel); color: var(--navy); }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+.grid-2--3 { grid-template-columns: repeat(3, 1fr); gap: clamp(28px, 4vw, 64px); }
 .sticky { position: sticky; top: 120px; }
 @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } .sticky { position: static; } }
 

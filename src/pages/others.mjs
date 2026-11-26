@@ -135,9 +135,10 @@ export function builders() {
       </div>
       <a class="btn btn--blue" href="./contact" data-magnetic>Ask about a site</a>
     </div>
-    <div class="grid-2" style="margin-top:64px">
+    <div class="grid-2 grid-2--3" style="margin-top:64px">
       <div class="fade-up"><h3 class="display d-4">Founding builder intro</h3><p class="muted" style="margin-top:12px">First five builders get the intro price in exchange for a Google review and permission to feature the project.</p></div>
       <div class="fade-up"><h3 class="display d-4">Trade partner licensing</h3><p class="muted" style="margin-top:12px">The cabinet shop, tile setter, and fabricator on a job each want footage of their part. With your okay, I license it to each of them, so your trades get marketing too.</p></div>
+      <div class="fade-up"><h3 class="display d-4">AI in the edit</h3><p class="muted" style="margin-top:12px">I use AI tools in the editing room where they save time: cleanup, color, and the tedious parts. Your work is never generated or altered. What's on screen was built by you and filmed on site.</p></div>
     </div>
   </div>
 </section>
@@ -185,9 +186,9 @@ export function about() {
   <div class="wrap grid-2">
     <div class="why__portrait why__portrait--photo" data-reveal-clip data-parallax="0.1"><img src="./media/nick.jpg" srcset="./media/nick-640.jpg 640w, ./media/nick.jpg 1024w" sizes="(max-width: 900px) 100vw, 50vw" width="1024" height="1536" alt="Nick Molina" decoding="async"></div>
     <div>
-      <p class="lead fade-up">I've been a photographer since 2003. When a friend wanted to show people the renovations he was doing at Summit Custom Builders, I knew I could help. More than five years later, I'm still shooting his projects. That time taught me when to step back and show how a whole room comes together, and when to move in close on the one detail he's proudest of.</p>
-      <p class="lead fade-up" style="margin-top:24px">In late 2025 I picked up video because I wanted people to feel what I felt walking through a finished home. I fell for the whole process: finding the light, moving the camera through a room, then sitting down and bringing it together in the edit. In 2026 that curiosity led me to AI tools that expand what I can do in the editing room.</p>
-      <p class="lead fade-up" style="margin-top:24px">Nick Molina Media grew out of that work. What began as a favor for a friend became the work I wanted to do full time. Every project starts with a walkthrough. You show me what you're proudest of, and I build the film around it, because that's what your next client needs to see. The craftsmanship is already there. My job is to make sure it shows.</p>
+      <p class="lead fade-up">I've been a photographer since 2003. Five years ago a friend asked me to shoot the remodels he was building at Summit Custom Builders, and I've been on his job sites ever since. Somewhere in those years it stopped being a favor and became the work I wanted to do.</p>
+      <p class="lead fade-up" style="margin-top:24px">I added video because photos couldn't carry what it feels like to walk through a finished home. Now I film every project myself, from the first walkthrough to the final edit.</p>
+      <p class="lead fade-up" style="margin-top:24px">The craftsmanship is already there when I arrive. My job is to make sure the next homeowner sees it.</p>
       <p class="fade-up muted" style="margin-top:24px">Based in Denver. Working the Front Range only, so I can always be there in person.</p>
       <div class="why__kit fade-up"><ul><li>Cinema cameras</li><li>Gimbal and motorized slider</li><li>Google Local Guide, Level 7</li><li>Websites since the early 2000s</li></ul></div>
     </div>
