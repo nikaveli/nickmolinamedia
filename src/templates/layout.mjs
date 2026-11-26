@@ -35,29 +35,29 @@ export function layout({ title, description, body, bodyClass = '', depth = 0 }) 
   <a class="skip" href="#main">Skip to content</a>
   <div class="curtain" id="curtain" aria-hidden="true"><span class="curtain__name">Nick Molina <em>Media</em></span></div>
   <header class="nav" id="nav">
-    <a class="nav__brand" href="${base}index.html" aria-label="Nick Molina Media home">
+    <a class="nav__brand" href="${base}" aria-label="Nick Molina Media home">
       <img class="nav__logo nav__logo--light" src="${base}brand/lockup-light.png" alt="Nick Molina Media" width="1708" height="300" />
       <img class="nav__logo nav__logo--walnut" src="${base}brand/lockup-walnut.png" alt="" width="1708" height="300" />
     </a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="${base}work.html">Work</a>
-      <a href="${base}portfolio.html">Portfolio</a>
-      <a href="${base}builders.html">For Builders</a>
-      <a href="${base}about.html">About</a>
+      <a href="${base}work">Work</a>
+      <a href="${base}portfolio">Portfolio</a>
+      <a href="${base}builders">For Builders</a>
+      <a href="${base}about">About</a>
     </nav>
-    <a class="btn btn--blue nav__cta" href="${base}contact.html" data-magnetic>Book a shoot</a>
+    <a class="btn btn--blue nav__cta" href="${base}contact" data-magnetic>Book a shoot</a>
     <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
       <span></span><span></span>
     </button>
   </header>
   <div class="menu" id="menu" aria-hidden="true">
     <nav class="menu__links">
-      <a href="${base}index.html">Home</a>
-      <a href="${base}work.html">Work</a>
-      <a href="${base}portfolio.html">Portfolio</a>
-      <a href="${base}builders.html">For Builders</a>
-      <a href="${base}about.html">About</a>
-      <a href="${base}contact.html">Contact</a>
+      <a href="${base}">Home</a>
+      <a href="${base}work">Work</a>
+      <a href="${base}portfolio">Portfolio</a>
+      <a href="${base}builders">For Builders</a>
+      <a href="${base}about">About</a>
+      <a href="${base}contact">Contact</a>
     </nav>
     <p class="menu__foot">Denver &middot; Front Range &middot; <a href="tel:${SITE.tel}">${SITE.phone}</a></p>
   </div>
@@ -69,7 +69,7 @@ ${body}
   <footer class="footer">
     <div class="footer__top">
       <p class="footer__big">Your last job should<br /><em>sell your next one.</em></p>
-      <a class="btn btn--blue btn--lg" href="${base}contact.html" data-magnetic>Book a project shoot</a>
+      <a class="btn btn--blue btn--lg" href="${base}contact" data-magnetic>Book a project shoot</a>
     </div>
     <div class="footer__grid">
       <div>
@@ -77,11 +77,11 @@ ${body}
         <p class="muted">Cinematic video and photography for Colorado builders and remodelers. Denver metro and the Front Range.</p>
       </div>
       <nav class="footer__links" aria-label="Footer">
-        <a href="${base}work.html">Work</a>
-        <a href="${base}portfolio.html">Portfolio</a>
-        <a href="${base}builders.html">For Builders</a>
-        <a href="${base}about.html">About</a>
-        <a href="${base}contact.html">Contact</a>
+        <a href="${base}work">Work</a>
+        <a href="${base}portfolio">Portfolio</a>
+        <a href="${base}builders">For Builders</a>
+        <a href="${base}about">About</a>
+        <a href="${base}contact">Contact</a>
       </nav>
       <div class="footer__links">
         <a href="${SITE.instagram}" rel="noopener">Instagram</a>
@@ -94,7 +94,7 @@ ${body}
   </footer>
   </div></div>
 
-  <a class="mobile-cta" href="${base}contact.html">Book a shoot</a>
+  <a class="mobile-cta" href="${base}contact">Book a shoot</a>
 
   <div class="modal" id="filmModal" aria-hidden="true" role="dialog" aria-label="Project film">
     <button class="modal__close" id="filmClose" aria-label="Close">&times;</button>

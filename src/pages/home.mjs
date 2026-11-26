@@ -3,7 +3,7 @@ import { video, SITE } from '../templates/layout.mjs';
 export function home(projects) {
   const featured = projects.slice(0, 6);
   const cards = featured.map((p) => `
-        <a class="card" href="./work/${p.slug}.html" data-filter="${p.filter}">
+        <a class="card" href="./work/${p.slug}" data-filter="${p.filter}">
           ${video(p.loop + '.mp4', { poster: p.loop + '.jpg' })}
           <div class="card__meta"><h3>${p.title}</h3><span>${p.room} &middot; ${p.city}</span></div>
         </a>`).join('');
@@ -31,8 +31,8 @@ export function home(projects) {
     <div class="hero__row">
       <p class="hero__sub fade-up">I film finished kitchens, baths, additions, and custom homes across the Front Range. You get the film, reels, and photos that win the next homeowner.</p>
       <div class="hero__actions fade-up">
-        <a class="btn btn--blue" href="./contact.html" data-magnetic>Book a project shoot</a>
-        <a class="btn btn--ghost" href="./work.html" data-magnetic>See the work <span class="arrow">&rarr;</span></a>
+        <a class="btn btn--blue" href="./contact" data-magnetic>Book a project shoot</a>
+        <a class="btn btn--ghost" href="./work" data-magnetic>See the work <span class="arrow">&rarr;</span></a>
       </div>
     </div>
     <ul class="hero__chips fade-up"><li>One visit</li><li>Film in [7 days]</li><li>No contract</li><li>You own every file</li><li>Denver + Front Range</li></ul>
@@ -107,11 +107,11 @@ export function home(projects) {
         <h2 class="display d-3" style="margin-top:16px">Summit Custom Builders</h2>
         <p class="muted" style="margin-top:10px">Kitchens, baths, and additions across the Denver metro.</p>
       </div>
-      <a class="btn btn--ghost" href="./work.html" data-magnetic>All work <span class="arrow">&rarr;</span></a>
+      <a class="btn btn--ghost" href="./work" data-magnetic>All work <span class="arrow">&rarr;</span></a>
     </div>
     <div class="work-strip__track" id="workTrack">
       ${cards}
-      <a class="card card--end" href="./work.html"><span class="display d-4">See every project &rarr;</span></a>
+      <a class="card card--end" href="./work"><span class="display d-4">See every project &rarr;</span></a>
     </div>
   </div>
 </section>
@@ -126,12 +126,12 @@ export function home(projects) {
       <p class="lead fade-up">If a homeowner picks you because of how the last job looks, this is for you.</p>
     </div>
     <div class="who__grid">
-      <a class="who__card who__card--live fade-up" href="./builders.html"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u136.mp4" poster="./media/clips/u136.jpg" aria-hidden="true"></video><div class="who__body"><h3>Custom home builders</h3><p>Whole homes, filmed at the finish and along the way.</p></div></a>
-      <a class="who__card who__card--live fade-up" href="./builders.html"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u097.mp4" poster="./media/clips/u097.jpg" aria-hidden="true"></video><div class="who__body"><h3>Remodelers and design-build</h3><p>Whole-home and main-level remodels with a real before.</p></div></a>
-      <a class="who__card who__card--live fade-up" href="./builders.html"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u086.mp4" poster="./media/clips/u086.jpg" aria-hidden="true"></video><div class="who__body"><h3>Kitchen and bath specialists</h3><p>The rooms homeowners search for first, and judge hardest.</p></div></a>
-      <a class="who__card who__card--live fade-up" href="./builders.html"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u114.mp4" poster="./media/clips/u114.jpg" aria-hidden="true"></video><div class="who__body"><h3>Additions and ADUs</h3><p>Framing to finish, the transformation homeowners want to see.</p></div></a>
-      <a class="who__card who__card--live fade-up" href="./builders.html"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u023.mp4" poster="./media/clips/u023.jpg" aria-hidden="true"></video><div class="who__body"><h3>Outdoor living and pools</h3><p>Decks, patios, and backyards that sell best at dusk.</p></div></a>
-      <a class="who__card who__card--live fade-up" href="./builders.html"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u157.mp4" poster="./media/clips/u157.jpg" aria-hidden="true"></video><div class="who__body"><h3>The trades behind them</h3><p>Cabinets, tile, counters, framing. Licensed footage of your part of the job.</p></div></a>
+      <a class="who__card who__card--live fade-up" href="./builders"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u136.mp4" poster="./media/clips/u136.jpg" aria-hidden="true"></video><div class="who__body"><h3>Custom home builders</h3><p>Whole homes, filmed at the finish and along the way.</p></div></a>
+      <a class="who__card who__card--live fade-up" href="./builders"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u097.mp4" poster="./media/clips/u097.jpg" aria-hidden="true"></video><div class="who__body"><h3>Remodelers and design-build</h3><p>Whole-home and main-level remodels with a real before.</p></div></a>
+      <a class="who__card who__card--live fade-up" href="./builders"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u086.mp4" poster="./media/clips/u086.jpg" aria-hidden="true"></video><div class="who__body"><h3>Kitchen and bath specialists</h3><p>The rooms homeowners search for first, and judge hardest.</p></div></a>
+      <a class="who__card who__card--live fade-up" href="./builders"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u114.mp4" poster="./media/clips/u114.jpg" aria-hidden="true"></video><div class="who__body"><h3>Additions and ADUs</h3><p>Framing to finish, the transformation homeowners want to see.</p></div></a>
+      <a class="who__card who__card--live fade-up" href="./builders"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u023.mp4" poster="./media/clips/u023.jpg" aria-hidden="true"></video><div class="who__body"><h3>Outdoor living and pools</h3><p>Decks, patios, and backyards that sell best at dusk.</p></div></a>
+      <a class="who__card who__card--live fade-up" href="./builders"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u157.mp4" poster="./media/clips/u157.jpg" aria-hidden="true"></video><div class="who__body"><h3>The trades behind them</h3><p>Cabinets, tile, counters, framing. Licensed footage of your part of the job.</p></div></a>
     </div>
   </div>
 </section>
@@ -184,7 +184,7 @@ export function home(projects) {
         <span class="line"><span><em>shouldn't.</em></span></span>
       </h2>
       <p class="lead fade-up" style="margin-top:28px">On the Builder Film Plan I stop by active jobs between finishes. Framing, tile going in, cabinet install day. The footage keeps your feeds and your Google profile current while the big reveal is still months out, and it becomes the before in your before-and-after.</p>
-      <a class="btn btn--blue fade-up" style="margin-top:32px" href="./builders.html" data-magnetic>See the Builder Film Plan</a>
+      <a class="btn btn--blue fade-up" style="margin-top:32px" href="./builders" data-magnetic>See the Builder Film Plan</a>
     </div>
     <div class="stack-card__media" data-reveal-clip data-parallax="0.12" style="aspect-ratio: 4/5">${video('room-addition.mp4', { poster: 'room-addition.jpg' })}</div>
   </div>
@@ -223,7 +223,7 @@ export function home(projects) {
     <h2 class="display d-3 reveal-lines"><span class="line"><span>Every builder credited</span></span><span class="line"><span>by name, everywhere.</span></span></h2>
     <div>
       <p class="lead fade-up">Your company name goes on every film, reel, and photo set wherever the work appears. Homeowners who find the footage find you. Summit Custom Builders is credited on every project on this site.</p>
-      <a class="btn btn--ghost fade-up" style="margin-top:24px" href="./work.html" data-magnetic>See the Summit projects <span class="arrow">&rarr;</span></a>
+      <a class="btn btn--ghost fade-up" style="margin-top:24px" href="./work" data-magnetic>See the Summit projects <span class="arrow">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -243,21 +243,21 @@ export function home(projects) {
         <h3>Project Film</h3>
         <div class="pkg__price"><strong>$950</strong>per finished project &middot; $750 for your first</div>
         <ul><li>45 to 60 second cinematic project film</li><li>Three vertical reels for Instagram and Facebook</li><li>20+ edited photos, wide to detail</li><li>Delivered in [7 days]</li></ul>
-        <a class="btn btn--blue" href="./contact.html">Book a project shoot</a>
+        <a class="btn btn--blue" href="./contact">Book a project shoot</a>
       </div>
       <div class="pkg pkg--hero fade-up">
         <div class="pkg__tag">One project, three visits</div>
         <h3>Build Story</h3>
         <div class="pkg__price"><strong>$1,900</strong>per project &middot; before, during, reveal</div>
         <ul><li>Visit one: the before, same angles you'll see again at the end</li><li>Middle visit: framing, tile day, or cabinet install</li><li>Final visit: the reveal</li><li>Before-and-after film, project film, six reels, 30+ photos</li></ul>
-        <a class="btn btn--ghost" href="./contact.html">Book a Build Story</a>
+        <a class="btn btn--ghost" href="./contact">Book a Build Story</a>
       </div>
       <div class="pkg fade-up">
         <div class="pkg__tag">Every month</div>
         <h3>Builder Film Plan</h3>
         <div class="pkg__price"><strong>$1,200</strong>per month &middot; six-month plan</div>
         <ul><li>One finished-project film shoot a month</li><li>One in-progress visit a month</li><li>Reels and photos posted to your Google Business Profile</li><li>Your feeds stay current while the reveals are months out</li></ul>
-        <a class="btn btn--ghost" href="./contact.html">Talk about the plan</a>
+        <a class="btn btn--ghost" href="./contact">Talk about the plan</a>
       </div>
     </div>
     <div class="site-banner fade-up">
@@ -266,7 +266,7 @@ export function home(projects) {
         <h3 class="display d-4" style="margin-top:12px">Signature Website, built around your footage.</h3>
         <p class="muted" style="margin-top:10px; max-width:60ch">A cinematic home page and a project page for every job we film, built by me so the film and the site are made for each other. From $2,500.</p>
       </div>
-      <a class="btn btn--blue" href="./contact.html" data-magnetic>Ask about a site</a>
+      <a class="btn btn--blue" href="./contact" data-magnetic>Ask about a site</a>
     </div>
   </div>
 </section>
@@ -295,7 +295,7 @@ export function home(projects) {
     <p class="eyebrow fade-up" style="justify-content:center">Got a project wrapping up?</p>
     <h2 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Tell me where</span></span><span class="line"><span>and when.</span></span></h2>
     <p class="lead fade-up" style="margin: 24px auto 0; text-align:center">I'll take it from there.</p>
-    <a class="btn btn--blue btn--lg fade-up" href="./contact.html" data-magnetic>Book a project shoot</a>
+    <a class="btn btn--blue btn--lg fade-up" href="./contact" data-magnetic>Book a project shoot</a>
     <p class="cta__phone fade-up">Or call or text <a href="tel:${SITE.tel}">${SITE.phone}</a></p>
   </div>
 </section>`;

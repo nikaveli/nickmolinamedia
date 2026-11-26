@@ -19,14 +19,14 @@ const closing = (eyebrow = 'Got a project wrapping up?') => `
   <div class="cta__in">
     <p class="eyebrow fade-up" style="justify-content:center">${eyebrow}</p>
     <h2 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Tell me where</span></span><span class="line"><span>and when.</span></span></h2>
-    <a class="btn btn--blue btn--lg fade-up" href="./contact.html" data-magnetic>Book a project shoot</a>
+    <a class="btn btn--blue btn--lg fade-up" href="./contact" data-magnetic>Book a project shoot</a>
     <p class="cta__phone fade-up">Or call or text <a href="tel:${SITE.tel}">${SITE.phone}</a></p>
   </div>
 </section>`;
 
 export function work(projects) {
   const cards = projects.map((p) => `
-    <a class="card" href="./work/${p.slug}.html" data-filter="${p.filter}">
+    <a class="card" href="./work/${p.slug}" data-filter="${p.filter}">
       ${video(p.loop + '.mp4', { poster: p.loop + '.jpg' })}
       <div class="card__meta"><h3>${p.title}</h3><span>${p.room} &middot; ${p.city}</span></div>
     </a>`).join('');
@@ -51,7 +51,7 @@ export function work(projects) {
     <div class="grid-2" style="align-items:end">
       <div><h2 class="display d-2 reveal-lines"><span class="line"><span>Cut for the feed.</span></span></h2></div>
       <p class="lead fade-up">Every project also comes back as vertical reels, five to six seconds each, with the hook in the first two. These are the ones Summit posts.</p>
-      <a class="btn btn--ghost fade-up" href="./portfolio.html" data-magnetic>Open the full portfolio <span class="arrow">&rarr;</span></a>
+      <a class="btn btn--ghost fade-up" href="./portfolio" data-magnetic>Open the full portfolio <span class="arrow">&rarr;</span></a>
     </div>
     <div class="phones" data-phones>
       ${['u033', 'u048', 'u045', 'u037', 'u036', 'u039', 'u030', 'u034'].map((id) => `<div class="phone"><video muted playsinline loop preload="metadata" data-src="./media/clips/${id}.mp4" poster="./media/clips/${id}.jpg" aria-label="Vertical reel"></video></div>`).join('')}
@@ -92,12 +92,12 @@ export function builders() {
 <section class="section light" style="padding-top:0">
   <div class="wrap">
     <div class="who__grid">
-      <a class="who__card fade-up" href="./contact.html"><h3>Custom home builders</h3><p>Whole homes, filmed at the finish and along the way.</p></a>
-      <a class="who__card fade-up" href="./contact.html"><h3>Remodelers and design-build</h3><p>Whole-home and main-level remodels with a real before.</p></a>
-      <a class="who__card fade-up" href="./contact.html"><h3>Kitchen and bath specialists</h3><p>The rooms homeowners search for first, and judge hardest.</p></a>
-      <a class="who__card fade-up" href="./contact.html"><h3>Additions and ADUs</h3><p>Framing to finish, the transformation homeowners want to see.</p></a>
-      <a class="who__card fade-up" href="./contact.html"><h3>Outdoor living and pools</h3><p>Decks, patios, and backyards that sell best at dusk.</p></a>
-      <a class="who__card fade-up" href="./contact.html"><h3>The trades behind them</h3><p>Cabinets, tile, counters, framing. Licensed footage of your part of the job.</p></a>
+      <a class="who__card fade-up" href="./contact"><h3>Custom home builders</h3><p>Whole homes, filmed at the finish and along the way.</p></a>
+      <a class="who__card fade-up" href="./contact"><h3>Remodelers and design-build</h3><p>Whole-home and main-level remodels with a real before.</p></a>
+      <a class="who__card fade-up" href="./contact"><h3>Kitchen and bath specialists</h3><p>The rooms homeowners search for first, and judge hardest.</p></a>
+      <a class="who__card fade-up" href="./contact"><h3>Additions and ADUs</h3><p>Framing to finish, the transformation homeowners want to see.</p></a>
+      <a class="who__card fade-up" href="./contact"><h3>Outdoor living and pools</h3><p>Decks, patios, and backyards that sell best at dusk.</p></a>
+      <a class="who__card fade-up" href="./contact"><h3>The trades behind them</h3><p>Cabinets, tile, counters, framing. Licensed footage of your part of the job.</p></a>
     </div>
   </div>
 </section>
@@ -110,21 +110,21 @@ export function builders() {
         <h3>Project Film</h3>
         <div class="pkg__price"><strong>$950</strong>per finished project &middot; $750 for your first</div>
         <ul><li>45 to 60 second cinematic project film</li><li>Three vertical reels for Instagram and Facebook</li><li>20+ edited photos, wide to detail</li><li>Delivered in [7 days]</li></ul>
-        <a class="btn btn--blue" href="./contact.html">Book a project shoot</a>
+        <a class="btn btn--blue" href="./contact">Book a project shoot</a>
       </div>
       <div class="pkg pkg--hero fade-up">
         <div class="pkg__tag">One project, three visits</div>
         <h3>Build Story</h3>
         <div class="pkg__price"><strong>$1,900</strong>per project &middot; before, during, reveal</div>
         <ul><li>Visit one: the before, same angles you'll see again at the end</li><li>Middle visit: framing, tile day, or cabinet install</li><li>Final visit: the reveal</li><li>Before-and-after film, project film, six reels, 30+ photos</li></ul>
-        <a class="btn btn--ghost" href="./contact.html">Book a Build Story</a>
+        <a class="btn btn--ghost" href="./contact">Book a Build Story</a>
       </div>
       <div class="pkg fade-up">
         <div class="pkg__tag">Every month</div>
         <h3>Builder Film Plan</h3>
         <div class="pkg__price"><strong>$1,200</strong>per month &middot; six-month plan</div>
         <ul><li>One finished-project film shoot a month</li><li>One in-progress visit a month</li><li>Reels and photos posted to your Google Business Profile</li><li>Your feeds stay current while the reveals are months out</li></ul>
-        <a class="btn btn--ghost" href="./contact.html">Talk about the plan</a>
+        <a class="btn btn--ghost" href="./contact">Talk about the plan</a>
       </div>
     </div>
     <div class="site-banner fade-up">
@@ -133,7 +133,7 @@ export function builders() {
         <h3 class="display d-4" style="margin-top:12px">Signature Website, built around your footage.</h3>
         <p class="muted" style="margin-top:10px; max-width:60ch">A cinematic home page and a project page for every job we film, built by me so the film and the site are made for each other. From $2,500.</p>
       </div>
-      <a class="btn btn--blue" href="./contact.html" data-magnetic>Ask about a site</a>
+      <a class="btn btn--blue" href="./contact" data-magnetic>Ask about a site</a>
     </div>
     <div class="grid-2" style="margin-top:64px">
       <div class="fade-up"><h3 class="display d-4">Founding builder intro</h3><p class="muted" style="margin-top:12px">First five builders get the intro price in exchange for a Google review and permission to feature the project.</p></div>
@@ -280,8 +280,8 @@ export function project(p, projects) {
   <div class="cta__in">
     <p class="eyebrow fade-up" style="justify-content:center">Want your next project filmed like this?</p>
     <h2 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Tell me where</span></span><span class="line"><span>and when.</span></span></h2>
-    <a class="btn btn--blue btn--lg fade-up" href="../contact.html" data-magnetic>Book a project shoot</a>
+    <a class="btn btn--blue btn--lg fade-up" href="../contact" data-magnetic>Book a project shoot</a>
   </div>
 </section>
-<a class="next-project" href="./${next.slug}.html"><span class="eyebrow">Next project</span><span class="display d-4">${next.title} &rarr;</span></a>`;
+<a class="next-project" href="./${next.slug}"><span class="eyebrow">Next project</span><span class="display d-4">${next.title} &rarr;</span></a>`;
 }

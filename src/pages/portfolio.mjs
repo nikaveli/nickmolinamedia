@@ -91,7 +91,7 @@ ${reels}
   <div class="cta__in">
     <p class="eyebrow fade-up" style="justify-content:center">Want your projects here?</p>
     <h2 class="display d-1 reveal-lines"><span class="line"><span>Tell me where</span></span><span class="line"><span>and when.</span></span></h2>
-    <a class="btn btn--blue btn--lg fade-up" href="./contact.html" data-magnetic>Book a project shoot</a>
+    <a class="btn btn--blue btn--lg fade-up" href="./contact" data-magnetic>Book a project shoot</a>
     <p class="cta__phone fade-up">Or call or text <a href="tel:${SITE.tel}">${SITE.phone}</a></p>
   </div>
 </section>`;
