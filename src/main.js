@@ -518,10 +518,8 @@ form?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = $('button[type=submit]', form); btn.disabled = true; btn.textContent = 'Sending…';
   try {
-    if (!form.action.includes('REPLACE_ME')) {
-      const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-      if (!r.ok) throw new Error('send failed');
-    }
+    const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+    if (!r.ok) throw new Error('send failed');
     const ok = $('#formOk'); ok.style.display = 'block';
     gsap.from(ok, { y: 12, opacity: 0, duration: 0.5, ease: T.enter });
     form.reset(); btn.textContent = 'Sent';
