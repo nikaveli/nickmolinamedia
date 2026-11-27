@@ -642,3 +642,10 @@ video { background-size: cover; background-position: center; background-repeat: 
 
 /* Portfolio hero on phones: the jump links clear the pinned booking bar */
 @media (max-width: 900px) { .pf-hero { padding-bottom: 112px; } }
+
+/* Homepage: the founding-builder offer, one line under the packages */
+.packages__note { margin-top: 20px; padding: 18px 24px; border: 1px solid var(--line-dark); border-radius: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px 32px; flex-wrap: wrap; font-size: 15px; color: var(--muted-dark); }
+.packages__note strong { color: var(--ink); font-weight: 700; }
+.packages__note a { color: var(--ink); font-weight: 600; white-space: nowrap; text-decoration: underline; text-underline-offset: 4px; }
+.packages__note a .arrow { display: inline-block; transition: transform 0.4s var(--ease); }
+.packages__note a:hover .arrow { transform: translateX(4px); }

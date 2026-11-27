@@ -173,6 +173,7 @@ ${filmHero({ lines: ["I'm Nick.", 'I show up.'], media: 'clips/u152', poster: 'h
     <div>
       <p class="lead fade-up">I've been a photographer since 2003. Five years ago a friend asked me to shoot the remodels he was building at Summit Custom Builders, and I've been on his job sites ever since. Somewhere in those years it stopped being a favor and became the work I wanted to do.</p>
       <p class="lead fade-up" style="margin-top:24px">I added video because photos couldn't carry what it feels like to walk through a finished home. Now I film every project myself, from the first walkthrough to the final edit.</p>
+      <p class="lead fade-up" style="margin-top:24px">After five years on Summit's job sites, I'm opening the same work to other custom builders and contractors across the Front Range.</p>
       <p class="lead fade-up" style="margin-top:24px">The craftsmanship is already there when I arrive. My job is to make sure the next homeowner sees it.</p>
       <p class="fade-up muted" style="margin-top:24px">Based in Denver. Working the Front Range only, so I can always be there in person.</p>
       <div class="why__kit fade-up"><ul><li>Cinema cameras</li><li>Gimbal and motorized slider</li><li>Google Local Guide, Level 7</li><li>Websites since the early 2000s</li></ul></div>

@@ -117,7 +117,7 @@ export function home(projects) {
       <div>
         <p class="eyebrow">Recent work</p>
         <h2 class="display d-3" style="margin-top:16px">Summit Custom Builders</h2>
-        <p class="muted" style="margin-top:10px">Five years of kitchens, baths, and additions for one Denver builder.</p>
+        <p class="muted" style="margin-top:10px">Five years of kitchens, baths, and additions for one Denver builder. Now booking others.</p>
       </div>
       <a class="btn btn--ghost" href="./work" data-magnetic>All work <span class="arrow">&rarr;</span></a>
     </div>
@@ -265,6 +265,7 @@ export function home(projects) {
         <a class="btn btn--ghost" href="./contact">Talk about the plan</a>
       </div>
     </div>
+    <p class="packages__note fade-up"><span><strong>Founding builder intro.</strong> The first five builders get the intro price in exchange for a Google review and permission to feature the project.</span><a href="./builders">See the details <span class="arrow">&rarr;</span></a></p>
     <div class="site-banner" data-slide="up">
       <div>
         <p class="eyebrow">The upgrade</p>
