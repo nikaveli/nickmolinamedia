@@ -235,8 +235,8 @@ ${filmHero({ lines: [p.title], media: p.loop, base: '../', cls: 'film-hero--proj
   </div>
   <div class="wrap project-film" style="padding-left:0; padding-right:0">
     <div class="film-frame" data-reveal-clip>
-      <img src="../media/film-summit1.jpg" alt="Still from the Summit Custom Builders project film" loading="lazy" />
-      <button class="film-frame__play" data-film="../media/film-summit1.mp4" aria-label="Play the project film"><span>PLAY</span></button>
+      <img src="../media/film-${p.slug}.jpg" alt="Still from the ${p.title} film" width="1280" height="720" loading="lazy" />
+      <button class="film-frame__play" data-film="../media/film-${p.slug}.mp4" aria-label="Play the ${p.title} film"><span>PLAY</span></button>
     </div>
   </div>
   <div class="wrap">

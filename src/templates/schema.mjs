@@ -61,13 +61,15 @@ export const breadcrumbs = (trail) => ({
   itemListElement: trail.map(([name, path], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE.url + path })),
 });
 
-export const projectVideo = (p, published) => ({
+// The film on each project page (public/media/film-<slug>.mp4, built by scripts/encode-films.mjs).
+export const projectVideo = (p, published, film) => ({
   '@context': 'https://schema.org',
   '@type': 'VideoObject',
   name: `${p.title}, ${p.room.toLowerCase()} in ${p.city}`,
   description: p.blurb,
-  thumbnailUrl: `${SITE.url}/media/${p.loop}.jpg`,
-  contentUrl: `${SITE.url}/media/${p.loop}.mp4`,
+  thumbnailUrl: film ? `${SITE.url}/media/film-${p.slug}.jpg` : `${SITE.url}/media/${p.loop}.jpg`,
+  contentUrl: film ? `${SITE.url}/media/film-${p.slug}.mp4` : `${SITE.url}/media/${p.loop}.mp4`,
+  ...(film ? { duration: `PT${film.seconds}S` } : {}),
   uploadDate: published,
   creator: { '@id': SITE.url + '/#business' },
   about: { '@type': 'Organization', name: 'Summit Custom Builders', url: 'https://summitcustombuilders.net' },

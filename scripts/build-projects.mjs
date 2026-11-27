@@ -9,6 +9,7 @@ import { portfolio } from '../src/pages/portfolio.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const projects = JSON.parse(readFileSync(resolve(root, 'src/data/projects.json'), 'utf8'));
+const films = JSON.parse(readFileSync(resolve(root, 'src/data/films.json'), 'utf8'));
 // Headline lines are separate block spans; a space between them keeps a plain-text read from
 // running "in person,every time." together.
 const w = (file, html) => writeFileSync(resolve(root, file), html.replace(/<\/span><\/span><span class="line">/g, '</span></span> <span class="line">'));
@@ -41,7 +42,7 @@ mkdirSync(resolve(root, 'work'), { recursive: true });
 for (const p of projects) {
   const file = `work/${p.slug}.html`;
   page(file, { title: `${p.title} in ${p.city} | Nick Molina Media`, description: projectDescription(p), body: project(p, projects), bodyClass: 'is-project', depth: 1, preload: [{ href: `media/${p.loop}.jpg` }],
-    jsonld: [projectVideo(p, firstPublished(file)), breadcrumbs([['Home', '/'], ['Work', '/work'], [p.title, pathOf(file)]])] });
+    jsonld: [projectVideo(p, firstPublished(file), films[p.slug]), breadcrumbs([['Home', '/'], ['Work', '/work'], [p.title, pathOf(file)]])] });
 }
 // Sitemap: every page above, at its clean URL. Served from /sitemap.xml and named in robots.txt.
 const urls = pages.map((f) => `  <url><loc>${SITE.url}${pathOf(f)}</loc><lastmod>${lastmod(f)}</lastmod></url>`).join('\n');
