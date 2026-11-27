@@ -636,3 +636,9 @@ video { background-size: cover; background-position: center; background-repeat: 
 
 /* Contact page: the form's own button is the action, so the pinned booking bar (which links here) steps aside */
 @media (max-width: 900px) { .is-contact .mobile-cta { display: none; } body.is-contact { padding-bottom: 0; } }
+
+/* Work page: the portfolio link keeps its own width instead of stretching across the column on phones */
+.reels .grid-2 > .btn { justify-self: start; }
+
+/* Portfolio hero on phones: the jump links clear the pinned booking bar */
+@media (max-width: 900px) { .pf-hero { padding-bottom: 112px; } }
