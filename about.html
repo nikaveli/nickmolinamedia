@@ -20,14 +20,17 @@
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://nickmolinamedia.com/about#nick","name":"Nick Molina","jobTitle":"Videographer and photographer","url":"https://nickmolinamedia.com/about","image":"https://nickmolinamedia.com/media/nick.jpg","worksFor":{"@id":"https://nickmolinamedia.com/#business"},"sameAs":["https://instagram.com/nickmolinamedia","https://facebook.com/nickmolinamedia"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nickmolinamedia.com/"},{"@type":"ListItem","position":2,"name":"About","item":"https://nickmolinamedia.com/about"}]}</script>
+  <link rel="preload" as="image" href="./media/hero-u152.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./src/styles.css" />
   <script>try{if(sessionStorage.getItem('nmm-t')){document.documentElement.classList.add('is-arriving')}}catch(e){}</script>
 </head>
-<body class="light-page" data-base="./">
+<body class="is-film" data-base="./">
   <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="curtain curtain--edge" id="curtainEdge" aria-hidden="true"></div>
   <div class="curtain" id="curtain" aria-hidden="true"><span class="curtain__name">Nick Molina <em>Media</em></span></div>
   <header class="nav" id="nav">
     <a class="nav__brand" href="./" aria-label="Nick Molina Media home">
@@ -60,13 +63,17 @@
   <div id="smooth-wrapper"><div id="smooth-content">
   <main id="main">
 
-<section class="page-hero light">
-  <div class="wrap">
-    <p class="eyebrow fade-up">About</p>
-    <h1 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>I'm Nick.</span></span> <span class="line"><span>I show up.</span></span></h1>
+
+<section class="film-hero " data-film-hero>
+  <div class="film-hero__media"><video muted playsinline loop autoplay preload="auto" poster="./media/hero-u152.jpg" src="./media/clips/u152.mp4" aria-hidden="true"></video></div>
+  <div class="film-hero__shade"></div>
+  <div class="film-hero__copy">
+    <h1 class="display d-1 film-hero__title"><span class="line"><span>I'm Nick.</span></span> <span class="line"><span>I show up.</span></span></h1>
+    <p class="lead film-hero__lead fh-in">On site, in person, every time. I film the work the way it looks when you walk it.</p>
+    
   </div>
 </section>
-<section class="section light" style="padding-top:0">
+<section class="section light">
   <div class="wrap grid-2">
     <div class="why__portrait why__portrait--photo" data-reveal-clip data-parallax="0.1"><img src="./media/nick.jpg" srcset="./media/nick-640.jpg 640w, ./media/nick.jpg 1024w" sizes="(max-width: 900px) 100vw, 50vw" width="1024" height="1536" alt="Nick Molina" decoding="async"></div>
     <div>
@@ -84,15 +91,15 @@
     <p class="eyebrow fade-up">How it works</p>
     <h2 class="display d-2 reveal-lines" style="margin-top:24px; max-width: 14ch"><span class="line"><span>One visit.</span></span> <span class="line"><span>Everything you need.</span></span></h2>
     <div class="steps__list">
-      <div class="step" data-step><div class="step__num">01</div><h3>Tell me when it's done.</h3><p>Send the address and a time window around final walkthrough.</p></div>
-      <div class="step" data-step><div class="step__num">02</div><h3>I show up and film.</h3><p>Me, not a crew. About 2 to 3 hours on site, no disruption to your homeowner.</p></div>
-      <div class="step" data-step><div class="step__num">03</div><h3>You get the full set.</h3><p>A project film, vertical reels, and edited photos in 7 days.</p></div>
+      <div class="step" data-step data-slide="right"><div class="step__num">01</div><h3>Tell me when it's done.</h3><p>Send the address and a time window around final walkthrough.</p></div>
+      <div class="step" data-step data-slide="right"><div class="step__num">02</div><h3>I show up and film.</h3><p>Me, not a crew. About 2 to 3 hours on site, no disruption to your homeowner.</p></div>
+      <div class="step" data-step data-slide="right"><div class="step__num">03</div><h3>You get the full set.</h3><p>A project film, vertical reels, and edited photos in 7 days.</p></div>
     </div>
   </div>
 </section>
 
 <section class="cta">
-  <div class="cta__bg" data-parallax="0.2"><video class="" muted playsinline loop preload="metadata" data-src="./media/p-teal-bath.mp4" poster="./media/p-teal-bath.jpg"></video></div>
+  <div class="cta__bg"><video class="" muted playsinline loop preload="metadata" data-src="./media/p-teal-bath.mp4" poster="./media/p-teal-bath.jpg"></video></div>
   <div class="cta__in">
     <p class="eyebrow fade-up" style="justify-content:center">Got a project wrapping up?</p>
     <h2 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Tell me where</span></span> <span class="line"><span>and when.</span></span></h2>
@@ -104,7 +111,7 @@
   </main>
   <footer class="footer">
     <div class="footer__top">
-      <p class="footer__big">Your last job should<br /><em>sell your next one.</em></p>
+      <p class="footer__big reveal-lines"><span class="line"><span>Your last job should</span></span> <span class="line"><span><em>sell your next one.</em></span></span></p>
       <a class="btn btn--blue btn--lg" href="./contact" data-magnetic>Book a project shoot</a>
     </div>
     <div class="footer__grid">
@@ -127,6 +134,7 @@
       </div>
     </div>
     <p class="footer__legal">&copy; 2026 Nick Molina Media. Projects shown were built by Summit Custom Builders and filmed on site.</p>
+    <p class="footer__mark" id="footerMark" aria-hidden="true"><span class="line"><span>Nick</span></span> <span class="line"><span>Molina</span></span> <span class="line"><span><em>Media</em></span></span></p>
   </footer>
   </div></div>
 

@@ -19,15 +19,19 @@
   <meta property="og:site_name" content="Nick Molina Media" />
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://nickmolinamedia.com/#business","name":"Nick Molina Media","url":"https://nickmolinamedia.com/builders","areaServed":["Denver, Colorado","Denver metro area","Front Range, Colorado"],"makesOffer":[{"@type":"Offer","name":"Project Film","price":"950","priceCurrency":"USD","description":"One visit: a 45 to 60 second project film, three vertical reels, and 20+ edited photos. $750 for your first project.","url":"https://nickmolinamedia.com/builders"},{"@type":"Offer","name":"Build Story","price":"1900","priceCurrency":"USD","description":"One project, three visits: before, during, and reveal. Before-and-after film, project film, six reels, 30+ photos.","url":"https://nickmolinamedia.com/builders"},{"@type":"Offer","name":"Builder Film Plan","price":"1200","priceCurrency":"USD","description":"Per month on a six-month plan: one finished-project shoot and one in-progress visit a month, reels and photos posted to your Google Business Profile.","url":"https://nickmolinamedia.com/builders"},{"@type":"Offer","name":"Signature Website","price":"2500","priceCurrency":"USD","description":"From $2,500. A cinematic home page and a project page for every job filmed.","url":"https://nickmolinamedia.com/builders"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"All my work comes from referrals.","acceptedAnswer":{"@type":"Answer","text":"Every referral looks you up before they call. What they find decides whether they do."}},{"@type":"Question","name":"I take photos on my phone.","acceptedAnswer":{"@type":"Answer","text":"Phone photos record a job. They don't sell a six-figure kitchen. Film does."}},{"@type":"Question","name":"I've been burned by marketing companies.","acceptedAnswer":{"@type":"Answer","text":"No contract, no retainer, no account manager. One project, one flat price, and the files are yours."}},{"@type":"Question","name":"I don't have time.","acceptedAnswer":{"@type":"Answer","text":"Send me an address and a time window. I handle everything else. You keep building."}},{"@type":"Question","name":"The homeowner already moved in.","acceptedAnswer":{"@type":"Answer","text":"Lived-in homes still film well. The best window is the week of final walkthrough, so call me before the next one wraps."}},{"@type":"Question","name":"Video is expensive.","acceptedAnswer":{"@type":"Answer","text":"One project film costs less than one lost bid. It runs on your site and in your estimates for years."}},{"@type":"Question","name":"I'm not on social media.","acceptedAnswer":{"@type":"Answer","text":"Most of what I deliver goes on your website and your Google profile, where homeowners look you up. Social is the bonus."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nickmolinamedia.com/"},{"@type":"ListItem","position":2,"name":"For Builders","item":"https://nickmolinamedia.com/builders"}]}</script>
+  <link rel="preload" as="image" href="./media/room-addition.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./src/styles.css" />
   <script>try{if(sessionStorage.getItem('nmm-t')){document.documentElement.classList.add('is-arriving')}}catch(e){}</script>
 </head>
-<body class="light-page" data-base="./">
+<body class="is-film" data-base="./">
   <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="curtain curtain--edge" id="curtainEdge" aria-hidden="true"></div>
   <div class="curtain" id="curtain" aria-hidden="true"><span class="curtain__name">Nick Molina <em>Media</em></span></div>
   <header class="nav" id="nav">
     <a class="nav__brand" href="./" aria-label="Nick Molina Media home">
@@ -60,48 +64,52 @@
   <div id="smooth-wrapper"><div id="smooth-content">
   <main id="main">
 
-<section class="page-hero light">
-  <div class="wrap grid-2" style="align-items:end">
-    <div>
-      <p class="eyebrow fade-up">For builders</p>
-      <h1 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Video for builders</span></span> <span class="line"><span>too busy</span></span> <span class="line"><span>to market.</span></span></h1>
-    </div>
-    <div>
-      <p class="lead fade-up">Flat prices, no contract, and you own every file. One visit, one whole project, or a monthly rhythm. For remodelers, custom home builders, design-build firms, kitchen and bath specialists, and the trades behind them.</p>
-    </div>
+
+<section class="film-hero " data-film-hero>
+  <div class="film-hero__media"><video muted playsinline loop autoplay preload="auto" poster="./media/room-addition.jpg" src="./media/room-addition.mp4" aria-hidden="true"></video></div>
+  <div class="film-hero__shade"></div>
+  <div class="film-hero__copy">
+    <h1 class="display d-1 film-hero__title"><span class="line"><span>Video for builders</span></span> <span class="line"><span>too busy</span></span> <span class="line"><span>to market.</span></span></h1>
+    <p class="lead film-hero__lead fh-in">Flat prices, no contract, and you own every file. One visit, one whole project, or a monthly rhythm. For remodelers, custom home builders, design-build firms, kitchen and bath specialists, and the trades behind them.</p>
+    
   </div>
 </section>
-<section class="section light" style="padding-top:0">
+<section class="section light who">
   <div class="wrap">
-    <div class="who__grid">
-      <a class="who__card fade-up" href="./contact"><h3>Custom home builders</h3><p>Whole homes, filmed at the finish and along the way.</p></a>
-      <a class="who__card fade-up" href="./contact"><h3>Remodelers and design-build</h3><p>Whole-home and main-level remodels with a real before.</p></a>
-      <a class="who__card fade-up" href="./contact"><h3>Kitchen and bath specialists</h3><p>The rooms homeowners search for first, and judge hardest.</p></a>
-      <a class="who__card fade-up" href="./contact"><h3>Additions and ADUs</h3><p>Framing to finish, the transformation homeowners want to see.</p></a>
-      <a class="who__card fade-up" href="./contact"><h3>Outdoor living and pools</h3><p>Decks, patios, and backyards that sell best at dusk.</p></a>
-      <a class="who__card fade-up" href="./contact"><h3>The trades behind them</h3><p>Cabinets, tile, counters, framing. Licensed footage of your part of the job.</p></a>
+    <div class="grid-2" style="align-items:end">
+      <div><h2 class="display d-2 reveal-lines"><span class="line"><span>Built for trades where</span></span> <span class="line"><span>the work is the proof.</span></span></h2></div>
+      <p class="lead fade-up">If a homeowner picks you because of how the last job looks, this is for you.</p>
     </div>
+    <div class="who__grid" data-slider>
+      <a class="who__card who__card--live fade-up" href="./contact"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u136.mp4" poster="./media/clips/u136.jpg" aria-hidden="true"></video><div class="who__body"><h3>Custom home builders</h3><p>Whole homes, filmed at the finish and along the way.</p></div></a>
+      <a class="who__card who__card--live fade-up" href="./contact"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u097.mp4" poster="./media/clips/u097.jpg" aria-hidden="true"></video><div class="who__body"><h3>Remodelers and design-build</h3><p>Whole-home and main-level remodels with a real before.</p></div></a>
+      <a class="who__card who__card--live fade-up" href="./contact"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u086.mp4" poster="./media/clips/u086.jpg" aria-hidden="true"></video><div class="who__body"><h3>Kitchen and bath specialists</h3><p>The rooms homeowners search for first, and judge hardest.</p></div></a>
+      <a class="who__card who__card--live fade-up" href="./contact"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u114.mp4" poster="./media/clips/u114.jpg" aria-hidden="true"></video><div class="who__body"><h3>Additions and ADUs</h3><p>Framing to finish, the transformation homeowners want to see.</p></div></a>
+      <a class="who__card who__card--live fade-up" href="./contact"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u023.mp4" poster="./media/clips/u023.jpg" aria-hidden="true"></video><div class="who__body"><h3>Outdoor living and pools</h3><p>Decks, patios, and backyards that sell best at dusk.</p></div></a>
+      <a class="who__card who__card--live fade-up" href="./contact"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u157.mp4" poster="./media/clips/u157.jpg" aria-hidden="true"></video><div class="who__body"><h3>The trades behind them</h3><p>Cabinets, tile, counters, framing. Licensed footage of your part of the job.</p></div></a>
+    </div>
+    <div class="slider-bar" aria-hidden="true"><i></i></div>
   </div>
 </section>
 <section class="section light packages" style="padding-top:0">
   <div class="wrap">
     <h2 class="display d-2 reveal-lines" style="margin:0 0 48px"><span class="line"><span>Three packages,</span></span> <span class="line"><span>one for each kind of job.</span></span></h2>
     <div class="packages__grid">
-      <div class="pkg fade-up">
+      <div class="pkg" data-slide="left">
         <div class="pkg__tag">One visit</div>
         <h3>Project Film</h3>
         <div class="pkg__price"><strong>$950</strong>per finished project &middot; $750 for your first</div>
         <ul><li>45 to 60 second cinematic project film</li><li>Three vertical reels for Instagram and Facebook</li><li>20+ edited photos, wide to detail</li><li>Delivered in 7 days</li></ul>
         <a class="btn btn--blue" href="./contact">Book a project shoot</a>
       </div>
-      <div class="pkg pkg--hero fade-up">
+      <div class="pkg pkg--hero" data-slide="up">
         <div class="pkg__tag">One project, three visits</div>
         <h3>Build Story</h3>
         <div class="pkg__price"><strong>$1,900</strong>per project &middot; before, during, reveal</div>
         <ul><li>Visit one: the before, same angles you'll see again at the end</li><li>Middle visit: framing, tile day, or cabinet install</li><li>Final visit: the reveal</li><li>Before-and-after film, project film, six reels, 30+ photos</li></ul>
         <a class="btn btn--ghost" href="./contact">Book a Build Story</a>
       </div>
-      <div class="pkg fade-up">
+      <div class="pkg" data-slide="right">
         <div class="pkg__tag">Every month</div>
         <h3>Builder Film Plan</h3>
         <div class="pkg__price"><strong>$1,200</strong>per month &middot; six-month plan</div>
@@ -109,7 +117,7 @@
         <a class="btn btn--ghost" href="./contact">Talk about the plan</a>
       </div>
     </div>
-    <div class="site-banner fade-up">
+    <div class="site-banner" data-slide="up">
       <div>
         <p class="eyebrow">The upgrade</p>
         <h3 class="display d-4" style="margin-top:12px">Signature Website, built around your footage.</h3>
@@ -129,9 +137,9 @@
     <p class="eyebrow fade-up">The Build Story</p>
     <h2 class="display d-2 reveal-lines" style="margin-top:24px; max-width: 16ch"><span class="line"><span>Three visits</span></span> <span class="line"><span>across one project.</span></span></h2>
     <div class="steps__list">
-      <div class="step step--media" data-step><div class="step__media" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="./media/clips/u150.mp4" poster="./media/clips/u150.jpg" aria-hidden="true"></video></div><div class="step__num">01</div><h3>The before.</h3><p>Demo day or the empty shell, shot from the exact angles you'll see again at the end. This is the half of the before-and-after most builders never capture.</p></div>
-      <div class="step step--media" data-step><div class="step__media" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="./media/clips/u152.mp4" poster="./media/clips/u152.jpg" aria-hidden="true"></video></div><div class="step__num">02</div><h3>The middle.</h3><p>Framing, tile going in, cabinet install. Craft the homeowner never sees once the walls close. Reels go out while the job is live.</p></div>
-      <div class="step step--media" data-step><div class="step__media" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="./media/clips/u081.mp4" poster="./media/clips/u081.jpg" aria-hidden="true"></video></div><div class="step__num">03</div><h3>The reveal.</h3><p>Final walkthrough week, before furniture and daily life move in. The project film, the before-and-after cut, the photo set.</p></div>
+      <div class="step step--media" data-step data-slide="right"><div class="step__media" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="./media/clips/u150.mp4" poster="./media/clips/u150.jpg" aria-hidden="true"></video></div><div class="step__num">01</div><h3>The before.</h3><p>Demo day or the empty shell, shot from the exact angles you'll see again at the end. This is the half of the before-and-after most builders never capture.</p></div>
+      <div class="step step--media" data-step data-slide="right"><div class="step__media" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="./media/clips/u152.mp4" poster="./media/clips/u152.jpg" aria-hidden="true"></video></div><div class="step__num">02</div><h3>The middle.</h3><p>Framing, tile going in, cabinet install. Craft the homeowner never sees once the walls close. Reels go out while the job is live.</p></div>
+      <div class="step step--media" data-step data-slide="right"><div class="step__media" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="./media/clips/u081.mp4" poster="./media/clips/u081.jpg" aria-hidden="true"></video></div><div class="step__num">03</div><h3>The reveal.</h3><p>Final walkthrough week, before furniture and daily life move in. The project film, the before-and-after cut, the photo set.</p></div>
     </div>
     <p class="muted fade-up" style="margin-top:40px; max-width:60ch">Single-visit Project Films follow the same final-visit standard. Delivery: reels in 3 business days, photo sets in 5, Project Films in 7 days, and Build Story films within two weeks of the final visit.</p>
   </div>
@@ -155,7 +163,7 @@
 </section>
 
 <section class="cta">
-  <div class="cta__bg" data-parallax="0.2"><video class="" muted playsinline loop preload="metadata" data-src="./media/p-teal-bath.mp4" poster="./media/p-teal-bath.jpg"></video></div>
+  <div class="cta__bg"><video class="" muted playsinline loop preload="metadata" data-src="./media/p-teal-bath.mp4" poster="./media/p-teal-bath.jpg"></video></div>
   <div class="cta__in">
     <p class="eyebrow fade-up" style="justify-content:center">Got a project wrapping up?</p>
     <h2 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Tell me where</span></span> <span class="line"><span>and when.</span></span></h2>
@@ -167,7 +175,7 @@
   </main>
   <footer class="footer">
     <div class="footer__top">
-      <p class="footer__big">Your last job should<br /><em>sell your next one.</em></p>
+      <p class="footer__big reveal-lines"><span class="line"><span>Your last job should</span></span> <span class="line"><span><em>sell your next one.</em></span></span></p>
       <a class="btn btn--blue btn--lg" href="./contact" data-magnetic>Book a project shoot</a>
     </div>
     <div class="footer__grid">
@@ -190,6 +198,7 @@
       </div>
     </div>
     <p class="footer__legal">&copy; 2026 Nick Molina Media. Projects shown were built by Summit Custom Builders and filmed on site.</p>
+    <p class="footer__mark" id="footerMark" aria-hidden="true"><span class="line"><span>Nick</span></span> <span class="line"><span>Molina</span></span> <span class="line"><span><em>Media</em></span></span></p>
   </footer>
   </div></div>
 

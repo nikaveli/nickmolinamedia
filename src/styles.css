@@ -504,3 +504,129 @@ main > section.cta.slide-over { border-radius: 36px 36px 0 0; overflow: hidden; 
   .chapter { min-height: 70vh; }
   .pf-hero__mosaic { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* =====================================================================
+   v4: film heroes, slide reveals, phone moment, swipe rows, footer mark
+   ===================================================================== */
+
+/* ---------- Browser surfaces ---------- */
+::selection { background: var(--camel); color: var(--navy); }
+html { scrollbar-color: rgba(124, 167, 235, 0.55) var(--navy); caret-color: var(--blue); }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+a, button { -webkit-tap-highlight-color: rgba(124, 167, 235, 0.18); }
+
+/* ---------- Scroll progress: a camel hairline along the top edge ---------- */
+.progress { position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 52; background: var(--camel); transform: scaleX(0); transform-origin: left; pointer-events: none; }
+
+/* ---------- Page transition: a camel edge leads the navy slide ---------- */
+.curtain--edge { z-index: 79; background: var(--camel); }
+
+/* Descenders inside masked lines (g, j, p, y) need room below the baseline */
+.reveal-lines .line, .hero__title .line, .film-hero__title .line { padding-bottom: 0.12em; margin-bottom: -0.12em; }
+.reveal-lines .line > span, .hero__title .line > span { transform: translateY(125%); }
+
+/* ---------- Film hero (inner pages) ---------- */
+.film-hero { position: relative; height: 100vh; height: 100svh; min-height: 560px; overflow: hidden; background: var(--navy); color: var(--white); display: flex; align-items: flex-end; }
+.film-hero--short { height: 74vh; height: 74svh; min-height: 480px; }
+.film-hero__media { position: absolute; inset: 0; overflow: hidden; will-change: clip-path; }
+.film-hero__media video { position: absolute; left: 0; top: -10%; width: 100%; height: 120%; max-width: none; object-fit: cover; will-change: transform; }
+.film-hero__shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0,12,38,0.55) 0%, rgba(0,12,38,0.12) 36%, rgba(0,12,38,0.5) 66%, rgba(0,12,38,0.9) 100%); }
+.film-hero__copy { position: relative; z-index: 2; width: 100%; max-width: calc(var(--max) + var(--gutter) * 2); margin: 0 auto; padding: 0 var(--gutter) clamp(40px, 8vh, 96px); }
+.film-hero__title { max-width: 13ch; text-shadow: 0 2px 30px rgba(0, 12, 38, 0.45); }
+.film-hero__title .line { display: block; overflow: hidden; }
+.film-hero__title .line > span { display: block; transform: translateY(125%); }
+.film-hero__lead { margin-top: 24px; max-width: 54ch; color: rgba(247, 245, 241, 0.9); text-shadow: 0 1px 18px rgba(0, 12, 38, 0.55); }
+.film-hero__foot { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 6px 28px; font-size: 14px; color: var(--camel); }
+.film-hero__foot a { text-decoration: underline; text-underline-offset: 3px; }
+.film-hero--project .film-hero__title { max-width: 14ch; }
+@media (prefers-reduced-motion: no-preference) { .fh-in { opacity: 0; transform: translateY(24px); } }
+@media (max-width: 900px) {
+  .film-hero__copy { padding-bottom: 112px; }
+  .film-hero__shade { background: linear-gradient(180deg, rgba(0,12,38,0.5) 0%, rgba(0,12,38,0.2) 30%, rgba(0,12,38,0.72) 62%, rgba(0,12,38,0.94) 100%); }
+  .film-hero--short { height: 78svh; }
+}
+
+/* ---------- Slide reveals: cards arrive from the side they sit on ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  [data-slide] { opacity: 0; transform: translate(var(--sx, 0), var(--sy, 0)); transition: none !important; }
+  [data-slide="left"] { --sx: -64px; }
+  [data-slide="right"] { --sx: 64px; }
+  [data-slide="up"] { --sy: 56px; }
+}
+
+/* ---------- Problem: thirty seconds on a phone ---------- */
+.problem__grid { display: grid; grid-template-columns: 1.25fr 0.75fr; grid-template-areas: "head phone" "lead phone"; gap: clamp(24px, 3vw, 44px) clamp(32px, 6vw, 96px); align-items: center; }
+.problem__big { grid-area: head; align-self: end; }
+.problem__lead { grid-area: lead; align-self: start; }
+.problem__phone { grid-area: phone; justify-self: center; }
+.phone--lg { position: relative; width: clamp(220px, 22vw, 320px); border: 8px solid var(--navy); border-radius: 40px; transform: rotate(4deg); box-shadow: 0 40px 80px rgba(0, 12, 38, 0.32), 0 10px 24px rgba(0, 12, 38, 0.2); will-change: transform; }
+.phone__reel { position: absolute; inset: 0 0 auto 0; height: 300%; will-change: transform; }
+.phone__reel video { display: block; width: 100%; height: 33.3334%; object-fit: cover; }
+.phone__hud { position: absolute; inset: 0 0 auto 0; z-index: 2; padding: 16px 18px 28px; display: flex; justify-content: space-between; align-items: center; color: var(--white); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; font-variant-numeric: tabular-nums; background: linear-gradient(rgba(0, 12, 38, 0.7), transparent); }
+.phone__dots { display: flex; gap: 5px; }
+.phone__dots i { width: 18px; height: 3px; border-radius: 2px; background: rgba(247, 245, 241, 0.35); transition: background 0.3s var(--ease); }
+.phone__dots i.is-on { background: var(--white); }
+@media (max-width: 900px) {
+  .problem__grid { grid-template-columns: 1fr; grid-template-areas: "head" "phone" "lead"; gap: 40px; }
+  .phone--lg { width: min(64vw, 270px); }
+}
+
+/* ---------- Swipe row: the six trades become tall cards you thumb through ---------- */
+.slider-bar { display: none; }
+@media (max-width: 700px) {
+  .who__grid[data-slider] { display: flex; gap: 12px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; margin: 40px calc(var(--gutter) * -1) 0; padding: 0 var(--gutter); scroll-padding-left: var(--gutter); scrollbar-width: none; }
+  .who__grid[data-slider]::-webkit-scrollbar { display: none; }
+  .who__grid[data-slider]::after { content: ''; flex: 0 0 1px; }
+  .who__grid[data-slider] .who__card--live { flex: 0 0 82%; min-height: min(64svh, 500px); scroll-snap-align: start; }
+  /* A vertical offset inside a horizontal scroller would make the row scroll both ways */
+  .who__grid[data-slider] .fade-up { transform: none; }
+  .who__card--live h3 { font-size: 32px; }
+  .slider-bar { display: block; position: relative; height: 2px; margin-top: 22px; border-radius: 2px; overflow: hidden; background: var(--line-dark); }
+  .slider-bar i { position: absolute; inset: 0; background: var(--navy); transform-origin: left; transform: scaleX(0.16); }
+}
+
+/* ---------- Closing call and next project: the frame opens to full bleed as it arrives ---------- */
+.cta { background: var(--navy); }
+.cta__bg { will-change: transform, clip-path; }
+.next-film { position: relative; background: var(--navy); }
+.next-film a { position: relative; display: grid; place-items: center; min-height: 78vh; min-height: 78svh; overflow: hidden; text-align: center; color: var(--white); }
+.next-film__bg { position: absolute; inset: -8% 0; will-change: transform, clip-path; }
+.next-film__bg video { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
+.next-film__bg::after { content: ''; position: absolute; inset: 0; background: rgba(0, 12, 38, 0.58); transition: background 0.5s var(--ease); }
+.next-film__copy { position: relative; z-index: 1; display: grid; gap: 18px; justify-items: center; padding: 0 var(--gutter) 40px; }
+.next-film__label { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; color: var(--camel); }
+.next-film__title { max-width: 11ch; text-wrap: balance; }
+.next-film__go { width: 64px; height: 64px; border-radius: 50%; border: 1px solid rgba(247, 245, 241, 0.5); display: grid; place-items: center; font-size: 22px; transition: transform 0.5s var(--ease), background 0.3s, color 0.3s, border-color 0.3s; }
+@media (hover: hover) {
+  .next-film a:hover .next-film__bg::after { background: rgba(0, 12, 38, 0.36); }
+  .next-film a:hover .next-film__bg video { transform: scale(1.04); }
+  .next-film a:hover .next-film__go { background: var(--blue); color: var(--navy); border-color: var(--blue); transform: translateX(8px); }
+}
+
+/* ---------- Work page: filters sit on the sheet that slides over the hero ---------- */
+.work-bar { padding-top: clamp(36px, 5vw, 72px); }
+.work-bar > .wrap:first-child { padding: 0 var(--gutter); }
+.work-bar .filters { margin: 0 0 clamp(24px, 3vw, 40px); }
+@media (max-width: 700px) {
+  .work-grid { gap: 14px; }
+  .work-grid .card { aspect-ratio: 4 / 5; }
+  .work-bar .filters { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); scrollbar-width: none; }
+  .work-bar .filters::-webkit-scrollbar { display: none; }
+  .work-bar .filters button { flex: 0 0 auto; }
+}
+.phones .phone:nth-child(even) { margin-top: 44px; }
+.phones { padding-top: 4px; align-items: flex-start; }
+
+/* ---------- Footer mark: the name, edge to edge ---------- */
+.footer__mark { margin: 44px 0 0; font-family: var(--serif); font-size: 12.4vw; line-height: 0.9; letter-spacing: -0.02em; white-space: nowrap; overflow: hidden; color: var(--white); }
+.footer__mark em { color: var(--camel); }
+.footer__mark .line { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 0.1em; }
+.footer__mark .line > span { display: inline-block; transform: translateY(125%); }
+.footer__big .line { display: block; overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .film-hero__title .line > span, .footer__mark .line > span, .fh-in, [data-slide] { opacity: 1 !important; transform: none !important; }
+}
+
+/* Phones already carry the pinned booking bar; the footer button would sit right on top of it */
+@media (max-width: 900px) { .footer__top .btn { display: none; } }

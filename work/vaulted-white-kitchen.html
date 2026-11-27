@@ -18,8 +18,9 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Nick Molina Media" />
   <meta name="twitter:card" content="summary_large_image" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"Vaulted White Kitchen, kitchen in Denver Metro","description":"A vaulted great room opened up around a long white island, with glass-front uppers, a paneled range hood, and leather stools pulled up to the quartz. Filmed in a single visit the week of final walkthrough.","thumbnailUrl":"https://nickmolinamedia.com/media/p-vaulted-kitchen.jpg","contentUrl":"https://nickmolinamedia.com/media/p-vaulted-kitchen.mp4","uploadDate":"2026-11-26","creator":{"@id":"https://nickmolinamedia.com/#business"},"about":{"@type":"Organization","name":"Summit Custom Builders","url":"https://summitcustombuilders.net"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"Vaulted White Kitchen, kitchen in Denver Metro","description":"A vaulted great room opened up around a long white island, with glass-front uppers, a paneled range hood, and leather stools pulled up to the quartz. Filmed in a single visit the week of final walkthrough.","thumbnailUrl":"https://nickmolinamedia.com/media/p-vaulted-kitchen.jpg","contentUrl":"https://nickmolinamedia.com/media/p-vaulted-kitchen.mp4","uploadDate":"2026-11-27","creator":{"@id":"https://nickmolinamedia.com/#business"},"about":{"@type":"Organization","name":"Summit Custom Builders","url":"https://summitcustombuilders.net"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nickmolinamedia.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://nickmolinamedia.com/work"},{"@type":"ListItem","position":3,"name":"Vaulted White Kitchen","item":"https://nickmolinamedia.com/work/vaulted-white-kitchen"}]}</script>
+  <link rel="preload" as="image" href="../media/p-vaulted-kitchen.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -28,6 +29,8 @@
 </head>
 <body class="is-project" data-base="../">
   <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="curtain curtain--edge" id="curtainEdge" aria-hidden="true"></div>
   <div class="curtain" id="curtain" aria-hidden="true"><span class="curtain__name">Nick Molina <em>Media</em></span></div>
   <header class="nav" id="nav">
     <a class="nav__brand" href="../" aria-label="Nick Molina Media home">
@@ -60,15 +63,14 @@
   <div id="smooth-wrapper"><div id="smooth-content">
   <main id="main">
 
-<section class="project-hero">
-  <video class="" muted playsinline loop preload="metadata" data-src="../media/p-vaulted-kitchen.mp4" poster="../media/p-vaulted-kitchen.jpg"></video>
-  <div class="project-hero__shade"></div>
-  <div class="project-hero__copy">
-    <div>
-      <p class="eyebrow">Kitchen &middot; Denver Metro</p>
-      <h1 class="display d-1" style="margin-top:16px">Vaulted White Kitchen</h1>
-    </div>
-    <p class="credit">Built by <a href="https://summitcustombuilders.net" rel="noopener" style="text-decoration:underline">Summit Custom Builders</a> &middot; Filmed by Nick Molina Media</p>
+
+<section class="film-hero film-hero--project" data-film-hero>
+  <div class="film-hero__media"><video muted playsinline loop autoplay preload="auto" poster="../media/p-vaulted-kitchen.jpg" src="../media/p-vaulted-kitchen.mp4" aria-hidden="true"></video></div>
+  <div class="film-hero__shade"></div>
+  <div class="film-hero__copy">
+    <h1 class="display d-1 film-hero__title"><span class="line"><span>Vaulted White Kitchen</span></span></h1>
+    
+    <div class="film-hero__foot fh-in"><span>Kitchen &middot; Denver Metro</span><span>Built by <a href="https://summitcustombuilders.net" rel="noopener">Summit Custom Builders</a> &middot; Filmed by Nick Molina Media</span></div>
   </div>
 </section>
 <section class="section light" style="padding-bottom:0">
@@ -78,37 +80,42 @@
   </div>
   <div class="wrap project-film" style="padding-left:0; padding-right:0">
     <div class="film-frame" data-reveal-clip>
-      <img src="../media/film-summit1.jpg" alt="" loading="lazy" />
+      <img src="../media/film-summit1.jpg" alt="Still from the Summit Custom Builders project film" loading="lazy" />
       <button class="film-frame__play" data-film="../media/film-summit1.mp4" aria-label="Play the project film"><span>PLAY</span></button>
     </div>
   </div>
   <div class="wrap">
-    <div class="details"><div class="detail fade-up"><b>01</b>Paneled range hood and glass-front uppers</div><div class="detail fade-up"><b>02</b>Quartz waterfall island with seating for five</div><div class="detail fade-up"><b>03</b>Pendants centered over the island run</div></div>
+    <div class="details"><div class="detail" data-slide="right"><b>01</b>Paneled range hood and glass-front uppers</div><div class="detail" data-slide="right"><b>02</b>Quartz waterfall island with seating for five</div><div class="detail" data-slide="right"><b>03</b>Pendants centered over the island run</div></div>
   </div>
 </section>
 <section class="section light"><div class="wrap"><p class="eyebrow fade-up" style="margin-bottom:32px">Gallery</p></div><div class="gallery wrap" style="padding:0"><figure class="clip-tile" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="../media/clips/u081.mp4" poster="../media/clips/u081.jpg" aria-label="Vaulted White Kitchen, clip 1"></video></figure><figure class="clip-tile" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="../media/clips/u078.mp4" poster="../media/clips/u078.jpg" aria-label="Vaulted White Kitchen, clip 2"></video></figure><figure class="clip-tile" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="../media/clips/u068.mp4" poster="../media/clips/u068.jpg" aria-label="Vaulted White Kitchen, clip 3"></video></figure><figure class="clip-tile" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="../media/clips/u082.mp4" poster="../media/clips/u082.jpg" aria-label="Vaulted White Kitchen, clip 4"></video></figure><figure class="clip-tile" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="../media/clips/u073.mp4" poster="../media/clips/u073.jpg" aria-label="Vaulted White Kitchen, clip 5"></video></figure><figure class="clip-tile" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="../media/clips/u069.mp4" poster="../media/clips/u069.jpg" aria-label="Vaulted White Kitchen, clip 6"></video></figure><figure class="clip-tile" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="../media/clips/u071.mp4" poster="../media/clips/u071.jpg" aria-label="Vaulted White Kitchen, clip 7"></video></figure><figure class="clip-tile" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="../media/clips/u072.mp4" poster="../media/clips/u072.jpg" aria-label="Vaulted White Kitchen, clip 8"></video></figure><figure class="clip-tile" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="../media/clips/u070.mp4" poster="../media/clips/u070.jpg" aria-label="Vaulted White Kitchen, clip 9"></video></figure><figure class="clip-tile" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="../media/clips/u076.mp4" poster="../media/clips/u076.jpg" aria-label="Vaulted White Kitchen, clip 10"></video></figure><figure class="clip-tile" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="../media/clips/u075.mp4" poster="../media/clips/u075.jpg" aria-label="Vaulted White Kitchen, clip 11"></video></figure><figure class="clip-tile" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="../media/clips/u074.mp4" poster="../media/clips/u074.jpg" aria-label="Vaulted White Kitchen, clip 12"></video></figure><figure class="clip-tile" data-reveal-clip><video muted playsinline loop preload="metadata" data-src="../media/clips/u077.mp4" poster="../media/clips/u077.jpg" aria-label="Vaulted White Kitchen, clip 13"></video></figure><figure data-reveal-clip><img src="../media/photos/vaulted-white-kitchen-01.jpg" alt="Vaulted White Kitchen, photo 1" loading="lazy" /></figure><figure data-reveal-clip><img src="../media/photos/vaulted-white-kitchen-02.jpg" alt="Vaulted White Kitchen, photo 2" loading="lazy" /></figure><figure data-reveal-clip><img src="../media/photos/vaulted-white-kitchen-03.jpg" alt="Vaulted White Kitchen, photo 3" loading="lazy" /></figure><figure data-reveal-clip><img src="../media/photos/vaulted-white-kitchen-04.jpg" alt="Vaulted White Kitchen, photo 4" loading="lazy" /></figure><figure data-reveal-clip><img src="../media/photos/vaulted-white-kitchen-05.jpg" alt="Vaulted White Kitchen, photo 5" loading="lazy" /></figure><figure data-reveal-clip><img src="../media/photos/vaulted-white-kitchen-06.jpg" alt="Vaulted White Kitchen, photo 6" loading="lazy" /></figure><figure data-reveal-clip><img src="../media/photos/vaulted-white-kitchen-07.jpg" alt="Vaulted White Kitchen, photo 7" loading="lazy" /></figure><figure data-reveal-clip><img src="../media/photos/vaulted-white-kitchen-08.jpg" alt="Vaulted White Kitchen, photo 8" loading="lazy" /></figure><figure data-reveal-clip><img src="../media/photos/vaulted-white-kitchen-09.jpg" alt="Vaulted White Kitchen, photo 9" loading="lazy" /></figure></div>
   <div class="wrap">
     <div class="delivered">
-      <div class="fade-up"><strong>9+</strong><span>edited photos</span></div>
-      <div class="fade-up"><strong>1</strong><span>project film</span></div>
-      <div class="fade-up"><strong>3</strong><span>vertical reels</span></div>
-      <div class="fade-up"><strong>7</strong><span>days to delivery</span></div>
+      <div data-slide="up"><strong>9+</strong><span>edited photos</span></div>
+      <div data-slide="up"><strong>1</strong><span>project film</span></div>
+      <div data-slide="up"><strong>3</strong><span>vertical reels</span></div>
+      <div data-slide="up"><strong>7</strong><span>days to delivery</span></div>
     </div>
   </div>
 </section>
 <section class="cta">
-  <div class="cta__bg" data-parallax="0.2"><video class="" muted playsinline loop preload="metadata" data-src="../media/p-navy-kitchen.mp4" poster="../media/p-navy-kitchen.jpg"></video></div>
+  <div class="cta__bg"><video class="" muted playsinline loop preload="metadata" data-src="../media/p-vaulted-kitchen.mp4" poster="../media/p-vaulted-kitchen.jpg"></video></div>
   <div class="cta__in">
     <p class="eyebrow fade-up" style="justify-content:center">Want your next project filmed like this?</p>
     <h2 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Tell me where</span></span> <span class="line"><span>and when.</span></span></h2>
     <a class="btn btn--blue btn--lg fade-up" href="../contact" data-magnetic>Book a project shoot</a>
   </div>
 </section>
-<a class="next-project" href="./navy-kitchen"><span class="eyebrow">Next project</span><span class="display d-4">Navy Kitchen Remodel &rarr;</span></a>
+<section class="next-film">
+  <a href="./navy-kitchen" aria-label="Next project: Navy Kitchen Remodel">
+    <div class="next-film__bg"><video class="" muted playsinline loop preload="metadata" data-src="../media/p-navy-kitchen.mp4" poster="../media/p-navy-kitchen.jpg"></video></div>
+    <div class="next-film__copy"><span class="next-film__label">Next project</span><span class="display d-1 next-film__title">Navy Kitchen Remodel</span><span class="next-film__go" aria-hidden="true">&rarr;</span></div>
+  </a>
+</section>
   </main>
   <footer class="footer">
     <div class="footer__top">
-      <p class="footer__big">Your last job should<br /><em>sell your next one.</em></p>
+      <p class="footer__big reveal-lines"><span class="line"><span>Your last job should</span></span> <span class="line"><span><em>sell your next one.</em></span></span></p>
       <a class="btn btn--blue btn--lg" href="../contact" data-magnetic>Book a project shoot</a>
     </div>
     <div class="footer__grid">
@@ -131,6 +138,7 @@
       </div>
     </div>
     <p class="footer__legal">&copy; 2026 Nick Molina Media. Projects shown were built by Summit Custom Builders and filmed on site.</p>
+    <p class="footer__mark" id="footerMark" aria-hidden="true"><span class="line"><span>Nick</span></span> <span class="line"><span>Molina</span></span> <span class="line"><span><em>Media</em></span></span></p>
   </footer>
   </div></div>
 

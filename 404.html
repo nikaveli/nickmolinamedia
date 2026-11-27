@@ -20,6 +20,7 @@
   <meta property="og:site_name" content="Nick Molina Media" />
   <meta name="twitter:card" content="summary_large_image" />
 
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -28,6 +29,8 @@
 </head>
 <body class="light-page" data-base="./">
   <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="curtain curtain--edge" id="curtainEdge" aria-hidden="true"></div>
   <div class="curtain" id="curtain" aria-hidden="true"><span class="curtain__name">Nick Molina <em>Media</em></span></div>
   <header class="nav" id="nav">
     <a class="nav__brand" href="./" aria-label="Nick Molina Media home">
@@ -73,7 +76,7 @@
 </section>
 
 <section class="cta">
-  <div class="cta__bg" data-parallax="0.2"><video class="" muted playsinline loop preload="metadata" data-src="./media/p-teal-bath.mp4" poster="./media/p-teal-bath.jpg"></video></div>
+  <div class="cta__bg"><video class="" muted playsinline loop preload="metadata" data-src="./media/p-teal-bath.mp4" poster="./media/p-teal-bath.jpg"></video></div>
   <div class="cta__in">
     <p class="eyebrow fade-up" style="justify-content:center">Got a project wrapping up?</p>
     <h2 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Tell me where</span></span> <span class="line"><span>and when.</span></span></h2>
@@ -85,7 +88,7 @@
   </main>
   <footer class="footer">
     <div class="footer__top">
-      <p class="footer__big">Your last job should<br /><em>sell your next one.</em></p>
+      <p class="footer__big reveal-lines"><span class="line"><span>Your last job should</span></span> <span class="line"><span><em>sell your next one.</em></span></span></p>
       <a class="btn btn--blue btn--lg" href="./contact" data-magnetic>Book a project shoot</a>
     </div>
     <div class="footer__grid">
@@ -108,6 +111,7 @@
       </div>
     </div>
     <p class="footer__legal">&copy; 2026 Nick Molina Media. Projects shown were built by Summit Custom Builders and filmed on site.</p>
+    <p class="footer__mark" id="footerMark" aria-hidden="true"><span class="line"><span>Nick</span></span> <span class="line"><span>Molina</span></span> <span class="line"><span><em>Media</em></span></span></p>
   </footer>
   </div></div>
 

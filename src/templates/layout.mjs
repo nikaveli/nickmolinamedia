@@ -8,10 +8,12 @@ export const SITE = {
   facebook: 'https://facebook.com/nickmolinamedia',
 };
 
-export function layout({ title, description, body, bodyClass = '', depth = 0, path = '/', jsonld = [], noindex = false }) {
+export function layout({ title, description, body, bodyClass = '', depth = 0, path = '/', jsonld = [], noindex = false, preload = [] }) {
   const base = depth ? '../'.repeat(depth) : './';
   const canonical = SITE.url + path;
   // Schema.org JSON-LD. Only facts that are visible on the page go in here.
+  // LCP image hints: each entry is { href, media? } relative to the site root.
+  const pre = preload.map((p) => `  <link rel="preload" as="image" href="${base}${p.href}"${p.media ? ` media="${p.media}"` : ''} fetchpriority="high" />`).join('\n');
   const ld = jsonld.map((o) => `  <script type="application/ld+json">${JSON.stringify(o).replace(/</g, '\\u003c')}</script>`).join('\n');
   return `<!doctype html>
 <html lang="en">
@@ -34,6 +36,7 @@ ${noindex ? '  <meta name="robots" content="noindex" />\n' : ''}  <meta name="th
   <meta property="og:site_name" content="${SITE.name}" />
   <meta name="twitter:card" content="summary_large_image" />
 ${ld}
+${pre}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -42,6 +45,8 @@ ${ld}
 </head>
 <body class="${bodyClass}" data-base="${base}">
   <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="curtain curtain--edge" id="curtainEdge" aria-hidden="true"></div>
   <div class="curtain" id="curtain" aria-hidden="true"><span class="curtain__name">Nick Molina <em>Media</em></span></div>
   <header class="nav" id="nav">
     <a class="nav__brand" href="${base}" aria-label="Nick Molina Media home">
@@ -77,7 +82,7 @@ ${body}
   </main>
   <footer class="footer">
     <div class="footer__top">
-      <p class="footer__big">Your last job should<br /><em>sell your next one.</em></p>
+      <p class="footer__big reveal-lines"><span class="line"><span>Your last job should</span></span><span class="line"><span><em>sell your next one.</em></span></span></p>
       <a class="btn btn--blue btn--lg" href="${base}contact" data-magnetic>Book a project shoot</a>
     </div>
     <div class="footer__grid">
@@ -100,6 +105,7 @@ ${body}
       </div>
     </div>
     <p class="footer__legal">&copy; ${new Date().getFullYear()} Nick Molina Media. Projects shown were built by Summit Custom Builders and filmed on site.</p>
+    <p class="footer__mark" id="footerMark" aria-hidden="true"><span class="line"><span>Nick</span></span> <span class="line"><span>Molina</span></span> <span class="line"><span><em>Media</em></span></span></p>
   </footer>
   </div></div>
 
@@ -118,4 +124,36 @@ ${body}
 export function video(src, { poster, cls = '', base = './' } = {}) {
   const p = poster ? ` poster="${base}media/${poster}"` : '';
   return `<video class="${cls}" muted playsinline loop preload="metadata" data-src="${base}media/${src}"${p}></video>`;
+}
+
+// Full-bleed footage hero for inner pages. The frame opens like a film gate on arrival (see main.js).
+// `lines` is the h1, one entry per line; `media` is a path under /media without extension.
+export function filmHero({ lines, lead = '', media, poster, base = './', foot = '', cls = '' }) {
+  const p = poster || media + '.jpg';
+  return `
+<section class="film-hero ${cls}" data-film-hero>
+  <div class="film-hero__media"><video muted playsinline loop autoplay preload="auto" poster="${base}media/${p}" src="${base}media/${media}.mp4" aria-hidden="true"></video></div>
+  <div class="film-hero__shade"></div>
+  <div class="film-hero__copy">
+    <h1 class="display d-1 film-hero__title">${lines.map((l) => `<span class="line"><span>${l}</span></span>`).join('')}</h1>
+    ${lead ? `<p class="lead film-hero__lead fh-in">${lead}</p>` : ''}
+    ${foot ? `<div class="film-hero__foot fh-in">${foot}</div>` : ''}
+  </div>
+</section>`;
+}
+
+// The six trades, each over its own clip. Phones get a swipeable row; larger screens a grid.
+const WHO = [
+  ['u136', 'Custom home builders', 'Whole homes, filmed at the finish and along the way.'],
+  ['u097', 'Remodelers and design-build', 'Whole-home and main-level remodels with a real before.'],
+  ['u086', 'Kitchen and bath specialists', 'The rooms homeowners search for first, and judge hardest.'],
+  ['u114', 'Additions and ADUs', 'Framing to finish, the transformation homeowners want to see.'],
+  ['u023', 'Outdoor living and pools', 'Decks, patios, and backyards that sell best at dusk.'],
+  ['u157', 'The trades behind them', 'Cabinets, tile, counters, framing. Licensed footage of your part of the job.'],
+];
+export function whoGrid(href, base = './') {
+  return `<div class="who__grid" data-slider>
+      ${WHO.map(([id, h, t]) => `<a class="who__card who__card--live fade-up" href="${href}"><video class="who__bg" muted playsinline loop preload="metadata" data-src="${base}media/clips/${id}.mp4" poster="${base}media/clips/${id}.jpg" aria-hidden="true"></video><div class="who__body"><h3>${h}</h3><p>${t}</p></div></a>`).join('\n      ')}
+    </div>
+    <div class="slider-bar" aria-hidden="true"><i></i></div>`;
 }

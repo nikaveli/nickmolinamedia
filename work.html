@@ -19,14 +19,17 @@
   <meta property="og:site_name" content="Nick Molina Media" />
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nickmolinamedia.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://nickmolinamedia.com/work"}]}</script>
+  <link rel="preload" as="image" href="./media/hero-u081.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./src/styles.css" />
   <script>try{if(sessionStorage.getItem('nmm-t')){document.documentElement.classList.add('is-arriving')}}catch(e){}</script>
 </head>
-<body class="light-page" data-base="./">
+<body class="is-film" data-base="./">
   <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="curtain curtain--edge" id="curtainEdge" aria-hidden="true"></div>
   <div class="curtain" id="curtain" aria-hidden="true"><span class="curtain__name">Nick Molina <em>Media</em></span></div>
   <header class="nav" id="nav">
     <a class="nav__brand" href="./" aria-label="Nick Molina Media home">
@@ -59,11 +62,18 @@
   <div id="smooth-wrapper"><div id="smooth-content">
   <main id="main">
 
-<section class="page-hero light">
+
+<section class="film-hero " data-film-hero>
+  <div class="film-hero__media"><video muted playsinline loop autoplay preload="auto" poster="./media/hero-u081.jpg" src="./media/clips/u081.mp4" aria-hidden="true"></video></div>
+  <div class="film-hero__shade"></div>
+  <div class="film-hero__copy">
+    <h1 class="display d-1 film-hero__title"><span class="line"><span>The work.</span></span></h1>
+    <p class="lead film-hero__lead fh-in">11 finished projects from one Denver builder, Summit Custom Builders, every one filmed on site in a single visit. This is what your next homeowner would see.</p>
+    
+  </div>
+</section>
+<section class="light work-bar">
   <div class="wrap">
-    <p class="eyebrow fade-up">Work</p>
-    <h1 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>The work.</span></span></h1>
-    <p class="lead fade-up">11 finished projects from one Denver builder, Summit Custom Builders, every one filmed on site in a single visit. This is what your next homeowner would see.</p>
     <div class="filters fade-up" id="filters">
       <button class="is-active" data-filter="all">All</button>
       <button data-filter="kitchens">Kitchens</button>
@@ -72,8 +82,7 @@
       <button data-filter="whole">Whole home</button>
     </div>
   </div>
-</section>
-<section class="light"><div class="wrap work-grid" id="workGrid">
+  <div class="wrap work-grid" id="workGrid">
     <a class="card" href="./work/vaulted-white-kitchen" data-filter="kitchens">
       <video class="" muted playsinline loop preload="metadata" data-src="./media/p-vaulted-kitchen.mp4" poster="./media/p-vaulted-kitchen.jpg"></video>
       <div class="card__meta"><h3>Vaulted White Kitchen</h3><span>Kitchen &middot; Denver Metro</span></div>
@@ -117,7 +126,8 @@
     <a class="card" href="./work/whole-home-remodel" data-filter="whole">
       <video class="" muted playsinline loop preload="metadata" data-src="./media/clips/u004.mp4" poster="./media/clips/u004.jpg"></video>
       <div class="card__meta"><h3>Whole-Home Remodel</h3><span>Whole home &middot; Denver Metro</span></div>
-    </a></div></section>
+    </a></div>
+</section>
 <section class="section reels">
   <div class="wrap">
     <div class="grid-2" style="align-items:end">
@@ -140,14 +150,14 @@
       <p class="lead fade-up">Sixty seconds across kitchens, baths, and an addition. This is what one builder's work looks like when it's filmed properly, and what yours could look like by the next walkthrough.</p>
     </div>
     <div class="film-frame" data-reveal-clip style="margin-top:48px">
-      <img src="./media/film-summit1.jpg" alt="" loading="lazy" />
+      <img src="./media/film-summit1.jpg" alt="Still from the Summit Custom Builders project film" loading="lazy" />
       <button class="film-frame__play" data-film="./media/film-summit1.mp4" aria-label="Play the Summit Custom Builders film"><span>PLAY</span></button>
     </div>
   </div>
 </section>
 
 <section class="cta">
-  <div class="cta__bg" data-parallax="0.2"><video class="" muted playsinline loop preload="metadata" data-src="./media/p-teal-bath.mp4" poster="./media/p-teal-bath.jpg"></video></div>
+  <div class="cta__bg"><video class="" muted playsinline loop preload="metadata" data-src="./media/p-teal-bath.mp4" poster="./media/p-teal-bath.jpg"></video></div>
   <div class="cta__in">
     <p class="eyebrow fade-up" style="justify-content:center">Want your work filmed like this?</p>
     <h2 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Tell me where</span></span> <span class="line"><span>and when.</span></span></h2>
@@ -159,7 +169,7 @@
   </main>
   <footer class="footer">
     <div class="footer__top">
-      <p class="footer__big">Your last job should<br /><em>sell your next one.</em></p>
+      <p class="footer__big reveal-lines"><span class="line"><span>Your last job should</span></span> <span class="line"><span><em>sell your next one.</em></span></span></p>
       <a class="btn btn--blue btn--lg" href="./contact" data-magnetic>Book a project shoot</a>
     </div>
     <div class="footer__grid">
@@ -182,6 +192,7 @@
       </div>
     </div>
     <p class="footer__legal">&copy; 2026 Nick Molina Media. Projects shown were built by Summit Custom Builders and filmed on site.</p>
+    <p class="footer__mark" id="footerMark" aria-hidden="true"><span class="line"><span>Nick</span></span> <span class="line"><span>Molina</span></span> <span class="line"><span><em>Media</em></span></span></p>
   </footer>
   </div></div>
 

@@ -89,7 +89,7 @@ export function portfolio(projects) {
 ${chapters}
 ${reels}
 <section class="cta">
-  <div class="cta__bg" data-parallax="0.2"><video muted playsinline loop preload="metadata" data-src="./media/clips/u081.mp4" poster="./media/clips/u081.jpg"></video></div>
+  <div class="cta__bg"><video muted playsinline loop preload="metadata" data-src="./media/clips/u081.mp4" poster="./media/clips/u081.jpg"></video></div>
   <div class="cta__in">
     <p class="eyebrow fade-up" style="justify-content:center">Want your projects here?</p>
     <h2 class="display d-1 reveal-lines"><span class="line"><span>Tell me where</span></span><span class="line"><span>and when.</span></span></h2>

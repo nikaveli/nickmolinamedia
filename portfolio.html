@@ -19,6 +19,7 @@
   <meta property="og:site_name" content="Nick Molina Media" />
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nickmolinamedia.com/"},{"@type":"ListItem","position":2,"name":"Portfolio","item":"https://nickmolinamedia.com/portfolio"}]}</script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -27,6 +28,8 @@
 </head>
 <body class="is-portfolio" data-base="./">
   <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="curtain curtain--edge" id="curtainEdge" aria-hidden="true"></div>
   <div class="curtain" id="curtain" aria-hidden="true"><span class="curtain__name">Nick Molina <em>Media</em></span></div>
   <header class="nav" id="nav">
     <a class="nav__brand" href="./" aria-label="Nick Molina Media home">
@@ -126,7 +129,7 @@
 </section>
 <section class="section wall-section"><div class="wall wall--5" data-wall><div class="wall__col" data-col data-speed="-70"><button class="tile tile--v" data-clip="u030" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u030.mp4" data-poster="./media/clips/u030.jpg"></video></button><button class="tile tile--v" data-clip="u035" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u035.mp4" data-poster="./media/clips/u035.jpg"></video></button><button class="tile tile--v" data-clip="u040" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u040.mp4" data-poster="./media/clips/u040.jpg"></video></button><button class="tile tile--v" data-clip="u045" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u045.mp4" data-poster="./media/clips/u045.jpg"></video></button></div><div class="wall__col" data-col data-speed="35"><button class="tile tile--v" data-clip="u031" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u031.mp4" data-poster="./media/clips/u031.jpg"></video></button><button class="tile tile--v" data-clip="u039" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u039.mp4" data-poster="./media/clips/u039.jpg"></video></button><button class="tile tile--v" data-clip="u044" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u044.mp4" data-poster="./media/clips/u044.jpg"></video></button><button class="tile tile--v" data-clip="u049" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u049.mp4" data-poster="./media/clips/u049.jpg"></video></button></div><div class="wall__col" data-col data-speed="-90"><button class="tile tile--v" data-clip="u034" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u034.mp4" data-poster="./media/clips/u034.jpg"></video></button><button class="tile tile--v" data-clip="u036" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u036.mp4" data-poster="./media/clips/u036.jpg"></video></button><button class="tile tile--v" data-clip="u041" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u041.mp4" data-poster="./media/clips/u041.jpg"></video></button><button class="tile tile--v" data-clip="u046" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u046.mp4" data-poster="./media/clips/u046.jpg"></video></button></div><div class="wall__col" data-col data-speed="45"><button class="tile tile--v" data-clip="u033" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u033.mp4" data-poster="./media/clips/u033.jpg"></video></button><button class="tile tile--v" data-clip="u038" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u038.mp4" data-poster="./media/clips/u038.jpg"></video></button><button class="tile tile--v" data-clip="u043" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u043.mp4" data-poster="./media/clips/u043.jpg"></video></button><button class="tile tile--v" data-clip="u048" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u048.mp4" data-poster="./media/clips/u048.jpg"></video></button></div><div class="wall__col" data-col data-speed="-60"><button class="tile tile--v" data-clip="u032" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u032.mp4" data-poster="./media/clips/u032.jpg"></video></button><button class="tile tile--v" data-clip="u037" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u037.mp4" data-poster="./media/clips/u037.jpg"></video></button><button class="tile tile--v" data-clip="u042" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u042.mp4" data-poster="./media/clips/u042.jpg"></video></button><button class="tile tile--v" data-clip="u047" aria-label="Play Reel"><video muted playsinline loop preload="none" data-src="./media/clips/u047.mp4" data-poster="./media/clips/u047.jpg"></video></button></div></div></section>
 <section class="cta">
-  <div class="cta__bg" data-parallax="0.2"><video muted playsinline loop preload="metadata" data-src="./media/clips/u081.mp4" poster="./media/clips/u081.jpg"></video></div>
+  <div class="cta__bg"><video muted playsinline loop preload="metadata" data-src="./media/clips/u081.mp4" poster="./media/clips/u081.jpg"></video></div>
   <div class="cta__in">
     <p class="eyebrow fade-up" style="justify-content:center">Want your projects here?</p>
     <h2 class="display d-1 reveal-lines"><span class="line"><span>Tell me where</span></span> <span class="line"><span>and when.</span></span></h2>
@@ -137,7 +140,7 @@
   </main>
   <footer class="footer">
     <div class="footer__top">
-      <p class="footer__big">Your last job should<br /><em>sell your next one.</em></p>
+      <p class="footer__big reveal-lines"><span class="line"><span>Your last job should</span></span> <span class="line"><span><em>sell your next one.</em></span></span></p>
       <a class="btn btn--blue btn--lg" href="./contact" data-magnetic>Book a project shoot</a>
     </div>
     <div class="footer__grid">
@@ -160,6 +163,7 @@
       </div>
     </div>
     <p class="footer__legal">&copy; 2026 Nick Molina Media. Projects shown were built by Summit Custom Builders and filmed on site.</p>
+    <p class="footer__mark" id="footerMark" aria-hidden="true"><span class="line"><span>Nick</span></span> <span class="line"><span>Molina</span></span> <span class="line"><span><em>Media</em></span></span></p>
   </footer>
   </div></div>
 

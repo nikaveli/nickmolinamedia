@@ -20,14 +20,17 @@
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://nickmolinamedia.com/#business","name":"Nick Molina Media","url":"https://nickmolinamedia.com/","telephone":"+17206252561","email":"nick.molina@icloud.com","image":"https://nickmolinamedia.com/brand/og.png","logo":"https://nickmolinamedia.com/brand/icon-512.png","description":"Cinematic project films, vertical reels, and photography for Colorado builders and remodelers. One visit, flat price, you own every file.","areaServed":["Denver, Colorado","Denver metro area","Front Range, Colorado"],"serviceType":["Construction videography","Remodeling photography","Project films for builders","Vertical reels for builders"],"founder":{"@type":"Person","name":"Nick Molina"},"sameAs":["https://instagram.com/nickmolinamedia","https://facebook.com/nickmolinamedia"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nickmolinamedia.com/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://nickmolinamedia.com/contact"}]}</script>
+  <link rel="preload" as="image" href="./media/hero-u136.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./src/styles.css" />
   <script>try{if(sessionStorage.getItem('nmm-t')){document.documentElement.classList.add('is-arriving')}}catch(e){}</script>
 </head>
-<body class="light-page" data-base="./">
+<body class="is-film" data-base="./">
   <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="curtain curtain--edge" id="curtainEdge" aria-hidden="true"></div>
   <div class="curtain" id="curtain" aria-hidden="true"><span class="curtain__name">Nick Molina <em>Media</em></span></div>
   <header class="nav" id="nav">
     <a class="nav__brand" href="./" aria-label="Nick Molina Media home">
@@ -60,14 +63,17 @@
   <div id="smooth-wrapper"><div id="smooth-content">
   <main id="main">
 
-<section class="page-hero light">
-  <div class="wrap">
-    <p class="eyebrow fade-up">Contact</p>
-    <h1 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Got a project</span></span> <span class="line"><span>wrapping up?</span></span></h1>
-    <p class="lead fade-up">Tell me where and when. I'll get back to you within one business day.</p>
+
+<section class="film-hero film-hero--short" data-film-hero>
+  <div class="film-hero__media"><video muted playsinline loop autoplay preload="auto" poster="./media/hero-u136.jpg" src="./media/clips/u136.mp4" aria-hidden="true"></video></div>
+  <div class="film-hero__shade"></div>
+  <div class="film-hero__copy">
+    <h1 class="display d-1 film-hero__title"><span class="line"><span>Got a project</span></span> <span class="line"><span>wrapping up?</span></span></h1>
+    <p class="lead film-hero__lead fh-in">Tell me where and when. I'll get back to you within one business day.</p>
+    
   </div>
 </section>
-<section class="section light" style="padding-top:0">
+<section class="section light">
   <div class="wrap grid-2">
     <form class="form fade-up" id="shootForm" action="https://formspree.io/f/mnpdrbrj" method="POST">
       <input type="hidden" name="_subject" value="New project shoot request from nickmolinamedia.com" />
@@ -85,17 +91,17 @@
       <div class="form__ok full" id="formOk">Got it. I'll call or text you within one business day to lock in a date.</div>
     </form>
     <aside class="contact-aside">
-      <div class="fade-up"><p class="eyebrow">Call or text</p><a href="tel:+17206252561">720-625-2561</a></div>
-      <div class="fade-up"><p class="eyebrow">Email</p><a href="mailto:nick.molina@icloud.com">nick.molina@icloud.com</a></div>
-      <div class="fade-up"><p class="eyebrow">Where</p><p class="lead">Denver metro and the Front Range.</p></div>
-      <div class="fade-up"><p class="eyebrow">Best time to book</p><p class="lead">A week or two before final walkthrough, while the home is still empty.</p></div>
+      <div data-slide="right"><p class="eyebrow">Call or text</p><a href="tel:+17206252561">720-625-2561</a></div>
+      <div data-slide="right"><p class="eyebrow">Email</p><a href="mailto:nick.molina@icloud.com">nick.molina@icloud.com</a></div>
+      <div data-slide="right"><p class="eyebrow">Where</p><p class="lead">Denver metro and the Front Range.</p></div>
+      <div data-slide="right"><p class="eyebrow">Best time to book</p><p class="lead">A week or two before final walkthrough, while the home is still empty.</p></div>
     </aside>
   </div>
 </section>
   </main>
   <footer class="footer">
     <div class="footer__top">
-      <p class="footer__big">Your last job should<br /><em>sell your next one.</em></p>
+      <p class="footer__big reveal-lines"><span class="line"><span>Your last job should</span></span> <span class="line"><span><em>sell your next one.</em></span></span></p>
       <a class="btn btn--blue btn--lg" href="./contact" data-magnetic>Book a project shoot</a>
     </div>
     <div class="footer__grid">
@@ -118,6 +124,7 @@
       </div>
     </div>
     <p class="footer__legal">&copy; 2026 Nick Molina Media. Projects shown were built by Summit Custom Builders and filmed on site.</p>
+    <p class="footer__mark" id="footerMark" aria-hidden="true"><span class="line"><span>Nick</span></span> <span class="line"><span>Molina</span></span> <span class="line"><span><em>Media</em></span></span></p>
   </footer>
   </div></div>
 

@@ -52,6 +52,8 @@ const MOBILE = '(max-width: 900px)';
 // Motion runs unless the person asked for reduced motion. Gating on "reduce" (not on
 // "no-preference") keeps motion on in browsers that report neither value.
 const reduce = window.matchMedia(REDUCE).matches;
+// True when this page was reached through the site's own slide transition (set in the document head).
+const ARRIVING = document.documentElement.classList.contains('is-arriving');
 const motion = (fn) => { if (!reduce) fn(); };
 // Responsive scenes: matchMedia runs the callback when either matches; ctx.conditions.desk tells them apart.
 const RESPONSIVE = { desk: DESK, mobile: MOBILE };
@@ -101,6 +103,7 @@ if (!reduce) mm.add('(pointer: fine)', () => {
 
 /* ---------- Nav: translucent after 40px, hides on scroll down, returns on scroll up ---------- */
 const nav = $('#nav');
+const progress = $('#progress');
 let lastY = 0;
 let menuOpen = false;
 ScrollTrigger.create({
@@ -109,6 +112,7 @@ ScrollTrigger.create({
     const y = self.scroll();
     nav.classList.toggle('is-scrolled', y > 40);
     nav.classList.toggle('is-hidden', y > 300 && y > lastY && !menuOpen);
+    if (progress) progress.style.transform = `scaleX(${self.progress.toFixed(4)})`;
     lastY = y;
   },
 });
@@ -193,6 +197,63 @@ if (hero) {
     }, 400);
   }
 }
+
+/* ---------- Film hero (inner pages): the frame opens like a film gate, then drifts under the scroll ---------- */
+$$('[data-film-hero]').forEach((fh) => {
+  const media = $('.film-hero__media', fh), vid = $('video', media), copy = $('.film-hero__copy', fh);
+  const lines = $$('.film-hero__title .line > span', fh), rest = $$('.fh-in', fh);
+  vid.play?.().catch(() => {});
+  motion(() => {
+    gsap.set(media, { clipPath: 'inset(36% 0% 36% 0%)' });
+    gsap.set(vid, { scale: 1.28 });
+    gsap.timeline({ delay: ARRIVING ? 0.5 : 0.15 })
+      .to(media, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.5, ease: 'power4.inOut' }, 0)
+      .to(vid, { scale: 1, duration: 2.4, ease: 'power3.out' }, 0)
+      .to(lines, { y: 0, duration: 1.25, ease: T.enter, stagger: T.lineStagger }, 0.55)
+      .to(rest, { opacity: 1, y: 0, duration: 0.9, ease: T.enter, stagger: 0.1 }, 0.95);
+    gsap.to(vid, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: fh, start: 'top top', end: 'bottom top', scrub: true } });
+    gsap.fromTo(copy, { yPercent: 0, autoAlpha: 1 }, { yPercent: -14, autoAlpha: 0, ease: 'none', immediateRender: false, scrollTrigger: { trigger: fh, start: 'top top', end: '70% top', scrub: true } });
+  });
+});
+
+/* ---------- Problem: three reels swipe past inside the phone while the clock runs to thirty seconds ---------- */
+const pPhone = $('#problemPhone');
+if (pPhone) {
+  motion(() => {
+    const reel = $('[data-reel]', pPhone), timer = $('[data-timer]', pPhone), dots = $$('.phone__dots i', pPhone), device = $('.phone', pPhone);
+    let shown = -1;
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: pPhone, start: 'top 82%', end: 'bottom 22%', scrub: isTouch ? true : 0.6, invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const sec = Math.round(self.progress * 30);
+          if (sec !== shown) { shown = sec; timer.textContent = '0:' + String(sec).padStart(2, '0'); }
+          const i = Math.min(2, Math.floor(self.progress * 3));
+          dots.forEach((d, k) => d.classList.toggle('is-on', k <= i));
+        },
+      },
+    })
+      .fromTo(device, { rotate: 8, y: 48 }, { rotate: 1, y: -36, duration: 1, ease: 'none' }, 0)
+      .to(reel, { yPercent: -33.3334, duration: 0.2, ease: 'power2.inOut' }, 0.24)
+      .to(reel, { yPercent: -66.6667, duration: 0.2, ease: 'power2.inOut' }, 0.58);
+  });
+}
+
+/* ---------- Swipe rows (phones): progress bar and a counter-drift on each card's footage ---------- */
+$$('[data-slider]').forEach((sl) => {
+  const bar = sl.nextElementSibling?.matches('.slider-bar') ? $('i', sl.nextElementSibling) : null;
+  const bgs = $$('.who__bg', sl);
+  let raf = 0;
+  const update = () => {
+    raf = 0;
+    const max = sl.scrollWidth - sl.clientWidth; if (max <= 0) return;
+    if (bar) bar.style.transform = `scaleX(${(0.16 + (sl.scrollLeft / max) * 0.84).toFixed(4)})`;
+    if (reduce) return;
+    const box = sl.getBoundingClientRect(); const mid = box.left + box.width / 2;
+    bgs.forEach((bg) => { const r = bg.parentElement.getBoundingClientRect(); gsap.set(bg, { xPercent: ((r.left + r.width / 2 - mid) / box.width) * -7 }); });
+  };
+  sl.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });
+});
 
 /* ---------- Shift: three rooms, three lines, one pinned scrub ---------- */
 const shift = $('#shift');
@@ -303,7 +364,7 @@ $$('[data-parallax]').forEach((el) => {
 
 /* ---------- Media drift: card media slides against the scroll (depth without a pin) ---------- */
 motion(() => {
-  const media = $$('.who__bg, .stack-card__media > video, .stack-card__media > img, .work-grid .card video, .work-grid .card img, .step--media video, .reels__phone video, .site-banner video');
+  const media = $$('.who__bg, .stack-card__media > video, .stack-card__media > img, .work-grid .card video, .work-grid .card img, .step--media video, .phones .phone video, .site-banner video');
   media.forEach((m) => {
     const box = m.parentElement; if (!box) return;
     gsap.set(m, { scale: 1.16, transformOrigin: 'center' });
@@ -316,6 +377,24 @@ const footer = $('.footer');
 if (footer) {
   motion(() => {
     gsap.fromTo(footer, { yPercent: -8, autoAlpha: 0.85 }, { yPercent: 0, autoAlpha: 1, ease: 'none', scrollTrigger: { trigger: footer, start: 'top bottom', end: 'top 45%', scrub: 1 } });
+  });
+}
+
+/* ---------- Footer mark: the name fitted edge to edge, rising word by word ---------- */
+const mark = $('#footerMark');
+if (mark) {
+  const fit = () => {
+    mark.style.fontSize = ''; mark.style.width = 'max-content';
+    const natural = mark.offsetWidth; mark.style.width = '';
+    if (natural) mark.style.fontSize = (parseFloat(getComputedStyle(mark).fontSize) * (mark.clientWidth / natural) * 0.995).toFixed(2) + 'px';
+  };
+  fit(); document.fonts?.ready.then(fit);
+  let mt; window.addEventListener('resize', () => { clearTimeout(mt); mt = setTimeout(fit, 200); });
+  motion(() => {
+    ScrollTrigger.create({
+      trigger: mark, start: 'top 98%', once: true,
+      onEnter: () => gsap.to($$('.line > span', mark), { y: 0, duration: 1.3, ease: T.enter, stagger: 0.09 }),
+    });
   });
 }
 
@@ -352,10 +431,13 @@ motion(() => {
 });
 if (reduce) $$('[data-reveal-clip]').forEach((el) => gsap.set(el, { clearProps: 'clipPath' }));
 
-/* ---------- Closing call: slow push-in on the background as it arrives ---------- */
+/* ---------- Closing call and next project: the frame opens from a card to full bleed (the hero's move, reversed) ---------- */
 motion(() => {
-  $$('.cta__bg').forEach((bg) => {
-    gsap.fromTo(bg, { scale: 1.18 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: bg.parentElement, start: 'top bottom', end: 'top top', scrub: 1 } });
+  $$('.cta__bg, .next-film__bg').forEach((bg) => {
+    gsap.fromTo(bg, { scale: 1.14, clipPath: 'inset(18% 10% 18% 10% round 28px)' }, {
+      scale: 1, clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'none',
+      scrollTrigger: { trigger: bg.parentElement, start: 'top 92%', end: 'top 12%', scrub: isTouch ? true : 0.8, invalidateOnRefresh: true },
+    });
   });
 });
 
@@ -369,19 +451,20 @@ if (!reduce) mm.add('(pointer: fine)', () => {
   return () => h.removeEventListener('mousemove', move);
 });
 
-/* ---------- Curtain page transitions ---------- */
-const curtain = $('#curtain');
+/* ---------- Slide page transitions: a camel edge leads, the navy sheet follows ---------- */
+const curtain = $('#curtain'), curtainEdge = $('#curtainEdge');
 if (curtain) {
-  const arriving = document.documentElement.classList.contains('is-arriving');
+  const arriving = ARRIVING;
   try { sessionStorage.removeItem('nmm-t'); } catch {}
   if (arriving && !reduce) {
-    gsap.set(curtain, { yPercent: 0 });
+    gsap.set([curtain, curtainEdge], { yPercent: 0 });
     gsap.timeline({ onComplete: () => document.documentElement.classList.remove('is-arriving') })
       .to('.curtain__name', { opacity: 0, y: -10, duration: 0.3, ease: T.exit }, 0.1)
-      .to(curtain, { yPercent: -100, duration: 0.8, ease: 'power4.inOut' }, 0.15);
+      .to(curtain, { yPercent: -100, duration: 0.8, ease: 'power4.inOut' }, 0.15)
+      .to(curtainEdge, { yPercent: -100, duration: 0.8, ease: 'power4.inOut' }, 0.27);
   } else {
     document.documentElement.classList.remove('is-arriving');
-    gsap.set(curtain, { yPercent: 100 });
+    gsap.set([curtain, curtainEdge], { yPercent: 100 });
   }
   if (!reduce) {
     document.addEventListener('click', (e) => {
@@ -395,7 +478,8 @@ if (curtain) {
       try { sessionStorage.setItem('nmm-t', '1'); } catch {}
       gsap.set('.curtain__name', { opacity: 0, y: 10 });
       gsap.timeline({ onComplete: () => { location.href = url.href; } })
-        .fromTo(curtain, { yPercent: 100 }, { yPercent: 0, duration: 0.7, ease: 'power4.inOut' })
+        .fromTo(curtainEdge, { yPercent: 100 }, { yPercent: 0, duration: 0.7, ease: 'power4.inOut' }, 0)
+        .fromTo(curtain, { yPercent: 100 }, { yPercent: 0, duration: 0.7, ease: 'power4.inOut' }, 0.1)
         .to('.curtain__name', { opacity: 1, y: 0, duration: 0.35, ease: T.enter }, '-=0.25');
     });
   }
@@ -463,6 +547,14 @@ motion(() => {
     onEnter: (els, triggers) => (triggers[0] && flicking(triggers[0])) ? shown(els) : gsap.to(els, {
       opacity: 1, y: 0, filter: 'blur(0px)', duration: T.text, ease: T.enter, stagger: T.cardStagger, overwrite: true,
       onComplete: () => shown(els),
+    }),
+  });
+  // Slide reveals: once in, the attribute comes off so hover transitions and layout own the element again.
+  const slid = (els) => els.forEach((el) => { el.removeAttribute('data-slide'); gsap.set(el, { clearProps: 'opacity,transform' }); });
+  ScrollTrigger.batch('[data-slide]', {
+    start: isTouch ? 'top 100%' : 'top 88%', once: true, interval: 0.1, batchMax: 6, fastScrollEnd: true,
+    onEnter: (els, triggers) => (triggers[0] && flicking(triggers[0])) ? slid(els) : gsap.to(els, {
+      opacity: 1, x: 0, y: 0, duration: T.card, ease: T.enter, stagger: 0.09, overwrite: true, onComplete: () => slid(els),
     }),
   });
   // Work grid: one staged entrance, then Flip owns the cards' opacity and position.

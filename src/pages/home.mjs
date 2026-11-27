@@ -1,4 +1,4 @@
-import { video, SITE } from '../templates/layout.mjs';
+import { video, whoGrid, SITE } from '../templates/layout.mjs';
 
 export const HOME_FAQ = [
   { q: "When should I call you?", a: "A week or two before a project wraps. The best footage happens around final walkthrough, before furniture and daily life move in." },
@@ -62,20 +62,23 @@ export function home(projects) {
   </div>
 </section>
 
-<!-- PROBLEM -->
+<!-- PROBLEM: thirty seconds on a phone -->
 <section class="section light problem">
-  <div class="wrap grid-2">
-    <div>
-      <p class="eyebrow fade-up">The problem</p>
-      <h2 class="problem__big reveal-lines" style="margin-top:24px">
-        <span class="line"><span>Homeowners decide</span></span>
-        <span class="line"><span>in thirty seconds,</span></span>
-        <span class="line"><span>on a phone.</span></span>
-      </h2>
+  <div class="wrap problem__grid">
+    <h2 class="problem__big reveal-lines">
+      <span class="line"><span>Homeowners decide</span></span>
+      <span class="line"><span>in thirty seconds,</span></span>
+      <span class="line"><span>on a phone.</span></span>
+    </h2>
+    <div class="problem__phone" id="problemPhone" aria-hidden="true">
+      <div class="phone phone--lg">
+        <div class="phone__reel" data-reel>
+          ${['u033', 'u048', 'u045'].map((id) => `<video muted playsinline loop preload="metadata" data-src="./media/clips/${id}.mp4" poster="./media/clips/${id}.jpg"></video>`).join('')}
+        </div>
+        <div class="phone__hud"><b data-timer>0:00</b><span class="phone__dots"><i class="is-on"></i><i></i><i></i></span></div>
+      </div>
     </div>
-    <div>
-      <p class="lead fade-up">The next homeowner is comparing three builders tonight, on a phone, in about thirty seconds each. They are not reading your reviews first. They are looking for proof. The builder whose work they can see gets the call. The others never hear about the job.</p>
-    </div>
+    <p class="lead problem__lead fade-up">The next homeowner is comparing three builders tonight, on a phone, in about thirty seconds each. They are not reading your reviews first. They are looking for proof. The builder whose work they can see gets the call. The others never hear about the job.</p>
   </div>
 </section>
 
@@ -88,17 +91,17 @@ export function home(projects) {
       <span class="line"><span>from one visit.</span></span>
     </h2>
     <div class="steps__list">
-      <div class="step" data-step>
+      <div class="step" data-step data-slide="right">
         <div class="step__num">01</div>
         <h3>Tell me when it's done.</h3>
         <p>Send the address and a time window around final walkthrough. That's all I need from you.</p>
       </div>
-      <div class="step" data-step>
+      <div class="step" data-step data-slide="right">
         <div class="step__num">02</div>
         <h3>I show up and film.</h3>
         <p>Me, not a crew. About 2 to 3 hours on site, with no disruption to your homeowner.</p>
       </div>
-      <div class="step" data-step>
+      <div class="step" data-step data-slide="right">
         <div class="step__num">03</div>
         <h3>You get the full set.</h3>
         <p>A project film, vertical reels, and edited photos in 7 days, sized for your website, Google profile, Instagram, and Facebook.</p>
@@ -134,14 +137,7 @@ export function home(projects) {
       </div>
       <p class="lead fade-up">If a homeowner picks you because of how the last job looks, this is for you.</p>
     </div>
-    <div class="who__grid">
-      <a class="who__card who__card--live fade-up" href="./builders"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u136.mp4" poster="./media/clips/u136.jpg" aria-hidden="true"></video><div class="who__body"><h3>Custom home builders</h3><p>Whole homes, filmed at the finish and along the way.</p></div></a>
-      <a class="who__card who__card--live fade-up" href="./builders"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u097.mp4" poster="./media/clips/u097.jpg" aria-hidden="true"></video><div class="who__body"><h3>Remodelers and design-build</h3><p>Whole-home and main-level remodels with a real before.</p></div></a>
-      <a class="who__card who__card--live fade-up" href="./builders"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u086.mp4" poster="./media/clips/u086.jpg" aria-hidden="true"></video><div class="who__body"><h3>Kitchen and bath specialists</h3><p>The rooms homeowners search for first, and judge hardest.</p></div></a>
-      <a class="who__card who__card--live fade-up" href="./builders"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u114.mp4" poster="./media/clips/u114.jpg" aria-hidden="true"></video><div class="who__body"><h3>Additions and ADUs</h3><p>Framing to finish, the transformation homeowners want to see.</p></div></a>
-      <a class="who__card who__card--live fade-up" href="./builders"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u023.mp4" poster="./media/clips/u023.jpg" aria-hidden="true"></video><div class="who__body"><h3>Outdoor living and pools</h3><p>Decks, patios, and backyards that sell best at dusk.</p></div></a>
-      <a class="who__card who__card--live fade-up" href="./builders"><video class="who__bg" muted playsinline loop preload="metadata" data-src="./media/clips/u157.mp4" poster="./media/clips/u157.jpg" aria-hidden="true"></video><div class="who__body"><h3>The trades behind them</h3><p>Cabinets, tile, counters, framing. Licensed footage of your part of the job.</p></div></a>
-    </div>
+    ${whoGrid('./builders')}
   </div>
 </section>
 
@@ -247,21 +243,21 @@ export function home(projects) {
       <p class="lead fade-up">Three shapes, nothing else to decode: one visit, one whole project, or a monthly rhythm. No contract on the first one. Start with a project, and stay when you see what it brings in.</p>
     </div>
     <div class="packages__grid">
-      <div class="pkg fade-up">
+      <div class="pkg" data-slide="left">
         <div class="pkg__tag">One visit</div>
         <h3>Project Film</h3>
         <div class="pkg__price"><strong>$950</strong>per finished project &middot; $750 for your first</div>
         <ul><li>45 to 60 second cinematic project film</li><li>Three vertical reels for Instagram and Facebook</li><li>20+ edited photos, wide to detail</li><li>Delivered in 7 days</li></ul>
         <a class="btn btn--blue" href="./contact">Book a project shoot</a>
       </div>
-      <div class="pkg pkg--hero fade-up">
+      <div class="pkg pkg--hero" data-slide="up">
         <div class="pkg__tag">One project, three visits</div>
         <h3>Build Story</h3>
         <div class="pkg__price"><strong>$1,900</strong>per project &middot; before, during, reveal</div>
         <ul><li>Visit one: the before, same angles you'll see again at the end</li><li>Middle visit: framing, tile day, or cabinet install</li><li>Final visit: the reveal</li><li>Before-and-after film, project film, six reels, 30+ photos</li></ul>
         <a class="btn btn--ghost" href="./contact">Book a Build Story</a>
       </div>
-      <div class="pkg fade-up">
+      <div class="pkg" data-slide="right">
         <div class="pkg__tag">Every month</div>
         <h3>Builder Film Plan</h3>
         <div class="pkg__price"><strong>$1,200</strong>per month &middot; six-month plan</div>
@@ -269,7 +265,7 @@ export function home(projects) {
         <a class="btn btn--ghost" href="./contact">Talk about the plan</a>
       </div>
     </div>
-    <div class="site-banner fade-up">
+    <div class="site-banner" data-slide="up">
       <div>
         <p class="eyebrow">The upgrade</p>
         <h3 class="display d-4" style="margin-top:12px">Signature Website, built around your footage.</h3>
@@ -294,7 +290,7 @@ export function home(projects) {
 
 <!-- CLOSING CTA -->
 <section class="cta" id="contact">
-  <div class="cta__bg" data-parallax="0.2">${video('p-vaulted-kitchen.mp4', { poster: 'p-vaulted-kitchen.jpg' })}</div>
+  <div class="cta__bg">${video('p-vaulted-kitchen.mp4', { poster: 'p-vaulted-kitchen.jpg' })}</div>
   <div class="cta__in">
     <p class="eyebrow fade-up" style="justify-content:center">Got a project wrapping up?</p>
     <h2 class="display d-1 reveal-lines" style="margin-top:24px"><span class="line"><span>Tell me where</span></span><span class="line"><span>and when.</span></span></h2>
