@@ -649,3 +649,10 @@ video { background-size: cover; background-position: center; background-repeat: 
 .packages__note a { color: var(--ink); font-weight: 600; white-space: nowrap; text-decoration: underline; text-underline-offset: 4px; }
 .packages__note a .arrow { display: inline-block; transition: transform 0.4s var(--ease); }
 .packages__note a:hover .arrow { transform: translateX(4px); }
+
+/* Marquee: the next section slides over the bottom of whatever precedes it, so the band keeps that much clear
+   space under the text. Spacing between copies is padding (not a flex gap) so the loop lands exactly. */
+.marquee { padding: 22px 0 calc(22px + 36px); }
+.marquee__track { gap: 0; }
+.marquee__track span { padding-right: 48px; }
+@media (max-width: 700px) { .marquee { padding-bottom: calc(22px + 22px); } }

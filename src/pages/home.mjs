@@ -172,8 +172,7 @@ export function home(projects) {
 <!-- MARQUEE -->
 <div class="marquee light" aria-hidden="true">
   <div class="marquee__track" id="marquee">
-    <span>Document <i>&middot;</i> Film <i>&middot;</i> Show <i>&middot;</i> Prove <i>&middot;</i> Stay visible <i>&middot;</i> Finish strong <i>&middot;</i></span>
-    <span>Document <i>&middot;</i> Film <i>&middot;</i> Show <i>&middot;</i> Prove <i>&middot;</i> Stay visible <i>&middot;</i> Finish strong <i>&middot;</i></span>
+    ${Array(4).fill('<span>Document <i>&middot;</i> Film <i>&middot;</i> Show <i>&middot;</i> Prove <i>&middot;</i> Stay visible <i>&middot;</i> Finish strong <i>&middot;</i></span>').join('\n    ')}
   </div>
 </div>
 

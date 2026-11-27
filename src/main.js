@@ -348,7 +348,8 @@ if (cards.length) {
 const marquee = $('#marquee');
 if (marquee) {
   motion(() => {
-    const loop = gsap.to(marquee, { xPercent: -50, duration: 26, ease: 'none', repeat: -1 });
+    // Four copies of the line; moving one copy's width (25%) loops seamlessly and keeps the row full on wide screens.
+    const loop = gsap.to(marquee, { xPercent: -25, duration: 26, ease: 'none', repeat: -1 });
     const st = ScrollTrigger.create({
       onUpdate: (self) => gsap.to(loop, { timeScale: 1 + Math.min(Math.abs(self.getVelocity()) / 500, 4), duration: 0.5, overwrite: true }),
     });
