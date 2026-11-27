@@ -477,7 +477,7 @@ if (curtain) {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target === '_blank' || a.hasAttribute('download')) return;
       const url = new URL(a.href, location.href);
       if (url.origin !== location.origin) return;
-      if (url.pathname === location.pathname && url.hash) { const target = document.querySelector(url.hash); if (target) { e.preventDefault(); const y = target.getBoundingClientRect().top + (window.scrollY || 0) - 20; (ScrollSmoother.get() ? ScrollSmoother.get().scrollTo(target, true, 'top 20px') : window.scrollTo({ top: y, behavior: 'smooth' })); } return; }
+      if (url.pathname === location.pathname && url.hash) { const target = document.querySelector(url.hash); if (target) { e.preventDefault(); if (menuOpen) toggle.click(); const y = target.getBoundingClientRect().top + (window.scrollY || 0) - 20; (ScrollSmoother.get() ? ScrollSmoother.get().scrollTo(target, true, 'top 20px') : window.scrollTo({ top: y, behavior: 'smooth' })); } return; }
       if (!/\.html$|\/$/.test(url.pathname)) return;
       e.preventDefault();
       try { sessionStorage.setItem('nmm-t', '1'); } catch {}
@@ -652,6 +652,22 @@ form?.addEventListener('submit', async (e) => {
     gsap.from(ok, { y: 12, opacity: 0, duration: 0.5, ease: T.enter });
     form.reset(); btn.textContent = 'Sent';
   } catch { btn.disabled = false; btn.textContent = 'Try again'; }
+});
+
+/* ---------- Arriving on an in-page link from another page (the menu's Pricing link) ----------
+   The browser jumps to the anchor before the pinned scenes have added their scroll length, so it lands
+   short. Once everything is measured, go to the real position. */
+window.addEventListener('load', () => {
+  if (!location.hash) return;
+  let target = null;
+  try { target = document.querySelector(location.hash); } catch { return; }
+  if (!target) return;
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+    const sm = ScrollSmoother.get();
+    if (sm) sm.scrollTo(target, false, 'top 20px');
+    else window.scrollTo(0, target.getBoundingClientRect().top + (window.scrollY || 0) - 20);
+  }, 400);
 });
 
 /* ---------- Refresh once fonts and media have settled ---------- */

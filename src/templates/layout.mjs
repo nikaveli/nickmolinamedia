@@ -57,6 +57,7 @@ ${pre}
       <a href="${base}work">Work</a>
       <a href="${base}portfolio">Portfolio</a>
       <a href="${base}builders">For Builders</a>
+      <a href="${base}#packages">Pricing</a>
       <a href="${base}about">About</a>
     </nav>
     <a class="btn btn--blue nav__cta" href="${base}contact" data-magnetic>Book a shoot</a>
@@ -70,6 +71,7 @@ ${pre}
       <a href="${base}work">Work</a>
       <a href="${base}portfolio">Portfolio</a>
       <a href="${base}builders">For Builders</a>
+      <a href="${base}#packages">Pricing</a>
       <a href="${base}about">About</a>
       <a href="${base}contact">Contact</a>
     </nav>
@@ -94,6 +96,7 @@ ${body}
         <a href="${base}work">Work</a>
         <a href="${base}portfolio">Portfolio</a>
         <a href="${base}builders">For Builders</a>
+        <a href="${base}#packages">Pricing</a>
         <a href="${base}about">About</a>
         <a href="${base}contact">Contact</a>
       </nav>
