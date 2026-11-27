@@ -65,6 +65,9 @@ const loadIO = new IntersectionObserver((entries) => {
     if (!e.isIntersecting) continue;
     const v = e.target;
     if (v.dataset.poster && !v.poster) v.poster = v.dataset.poster;
+    // On a slow link WebKit can show an empty (black) frame between assigning the source and decoding the
+    // first frame. The still sits behind the video as its background so that gap shows the room, not black.
+    if (v.poster) v.style.backgroundImage = 'url("' + v.poster + '")';
     if (!v.src) { v.src = v.dataset.src; v.load(); }
     loadIO.unobserve(v);
   }
@@ -408,7 +411,8 @@ motion(() => {
     if (!prev || prev.matches('.hero, .shift, .work-strip, .stack, .marquee, .pin-spacer')) return;
     gsap.to(prev, {
       scale: 0.96, autoAlpha: 0.55, transformOrigin: 'center bottom', ease: 'none',
-      scrollTrigger: { trigger: sec, start: 'top bottom', end: 'top 35%', scrub: 0.6, invalidateOnRefresh: true },
+      // Starts once the next sheet covers the lower third, so the last paragraph of a section is still read at full strength.
+      scrollTrigger: { trigger: sec, start: 'top 68%', end: 'top 8%', scrub: 0.6, invalidateOnRefresh: true },
     });
   });
 });

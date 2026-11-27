@@ -630,3 +630,9 @@ a, button { -webkit-tap-highlight-color: rgba(124, 167, 235, 0.18); }
 
 /* Phones already carry the pinned booking bar; the footer button would sit right on top of it */
 @media (max-width: 900px) { .footer__top .btn { display: none; } }
+
+/* The poster doubles as the video's background (set in main.js) so a slow first frame never shows black */
+video { background-size: cover; background-position: center; background-repeat: no-repeat; }
+
+/* Contact page: the form's own button is the action, so the pinned booking bar (which links here) steps aside */
+@media (max-width: 900px) { .is-contact .mobile-cta { display: none; } body.is-contact { padding-bottom: 0; } }
