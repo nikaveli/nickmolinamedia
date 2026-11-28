@@ -132,7 +132,7 @@ ${filmHero({ lines: ['Video for builders', 'too busy', 'to market.'], media: 'ro
       <a class="btn btn--blue" href="./contact" data-magnetic>Ask about a site</a>
     </div>
     <div class="grid-2 grid-2--3" style="margin-top:64px">
-      <div class="fade-up"><h3 class="display d-4">Founding builder intro</h3><p class="muted" style="margin-top:12px">The first five builders get their first Project Film for $750 in exchange for a Google review and permission to feature the project.</p></div>
+      <div class="fade-up"><h3 class="display d-4">Founding builder intro</h3><p class="muted" style="margin-top:12px">The first five builders get their first Project Film for $750 in exchange for permission to feature the project.</p></div>
       <div class="fade-up"><h3 class="display d-4">Trade partner licensing</h3><p class="muted" style="margin-top:12px">The cabinet shop, tile setter, and fabricator on a job each want footage of their part. With your okay, I license it to each of them, so your trades get marketing too.</p></div>
       <div class="fade-up"><h3 class="display d-4">AI in the edit</h3><p class="muted" style="margin-top:12px">I use AI tools in the editing room where they save time: cleanup, color, and the tedious parts. Your work is never generated or altered. What's on screen was built by you and filmed on site.</p></div>
     </div>

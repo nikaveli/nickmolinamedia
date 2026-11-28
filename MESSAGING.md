@@ -64,7 +64,7 @@ Three packages, three shapes: one visit, one whole project, one monthly rhythm. 
 - I credit your company by name wherever the work appears.
 
 **Two offer accelerators:**
-- **Founding builder intro.** The first five builders get their first Project Film for $750 in exchange for a Google review and permission to feature the project.
+- **Founding builder intro.** The first five builders get their first Project Film for $750 in exchange for permission to feature the project.
 - **Trade partner licensing.** The cabinet shop, tile setter, and countertop fabricator on a job each want footage of their part. License it to each for [$250 to 400] with the builder's okay. One shoot becomes three or four customers.
 
 ## 4. Objections and the answer to each (each is also a reel)
